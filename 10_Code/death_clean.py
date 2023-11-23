@@ -6,19 +6,19 @@ pd.set_option("mode.copy_on_write", True)
 
 # list of 12 names for txt files from US_VitalStatistics.zip
 file_names = [
-    "Underlying Cause of Death, 2003",
-    "Underlying Cause of Death, 2004",
-    "Underlying Cause of Death, 2005",
-    "Underlying Cause of Death, 2006",
-    "Underlying Cause of Death, 2007",
-    "Underlying Cause of Death, 2008",
-    "Underlying Cause of Death, 2009",
-    "Underlying Cause of Death, 2010",
-    "Underlying Cause of Death, 2011",
-    "Underlying Cause of Death, 2012",
-    "Underlying Cause of Death, 2013",
-    "Underlying Cause of Death, 2014",
-    "Underlying Cause of Death, 2015",
+    "Underlying%20Cause%20of%20Death%2C%202003",
+    "Underlying%20Cause%20of%20Death%2C%202004",
+    "Underlying%20Cause%20of%20Death%2C%202005",
+    "Underlying%20Cause%20of%20Death%2C%202006",
+    "Underlying%20Cause%20of%20Death%2C%202007",
+    "Underlying%20Cause%20of%20Death%2C%202008",
+    "Underlying%20Cause%20of%20Death%2C%202009",
+    "Underlying%20Cause%20of%20Death%2C%202010",
+    "Underlying%20Cause%20of%20Death%2C%202011",
+    "Underlying%20Cause%20of%20Death%2C%202012",
+    "Underlying%20Cause%20of%20Death%2C%202013",
+    "Underlying%20Cause%20of%20Death%2C%202014",
+    "Underlying%20Cause%20of%20Death%2C%202015",
 ]
 
 # create a new list to contain combined data
@@ -27,25 +27,28 @@ data_frames = []
 # states to select
 selected_states = [", TX", ", FL", ", WA"]
 
-for name in file_names:
-    # construct the file path，you could change your path
-    path = f"/Users/castnut/Desktop/opioid-2023-group-8-final-opioid/10_Code/US_VitalStatistics/{name}.txt"
+github_base_url = "https://raw.githubusercontent.com/MIDS-at-Duke/opioid-2023-group-8-final-opioid/tree/death_cleaning/10_Code/"
 
+# Filter out Alaska and "The Notes"
+exclude_keywords = ["Alaska", "The Notes"]
+
+for name in file_names:
+    encoded_name = name.replace(" ", "%20") + ".txt"
+    # construct the file path，you could change your path
+    path = github_base_url + f"US_VitalStatistics/{encoded_name}.txt"
     # read txt file
     state_death = pd.read_csv(path, sep="\t")
 
-    # select only the rows for TX, FL, and WA
-    selected_data = state_death.loc[
-        state_death["County"].notna()
-        & state_death["County"].str.contains("|".join(selected_states)),
-        :,
+    # Exclude rows containing Alaska and "The Notes"
+    state_death = state_death[
+        ~state_death["County"].str.contains("|".join(exclude_keywords))
     ]
 
-    # append to the list of dataframe
-    data_frames.append(selected_data)
+    # Append to the list of dataframe
+    data_frames.append(state_death)
 
-# concatenate all dataframe in the list
 combined_df = pd.concat(data_frames, ignore_index=True)
+print(combined_df)
 
 # check for missing values
 missing_values = combined_df.isna().sum()
