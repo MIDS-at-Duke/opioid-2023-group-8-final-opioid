@@ -18,6 +18,14 @@ for i, chunk in enumerate(csv_chunk):
         (chunk["BUYER_STATE"] == "WA")
         | (chunk["BUYER_STATE"] == "TX")
         | (chunk["BUYER_STATE"] == "FL")
+        | (chunk["BUYER_STATE"] == "OR")
+        | (chunk["BUYER_STATE"] == "ID")
+        | (chunk["BUYER_STATE"] == "OK")
+        | (chunk["BUYER_STATE"] == "AR")
+        | (chunk["BUYER_STATE"] == "LA")
+        | (chunk["BUYER_STATE"] == "GA")
+        | (chunk["BUYER_STATE"] == "AL")
+        | (chunk["BUYER_STATE"] == "TN")
     ]
     selected.append(append_chunk)
 data_selected = pd.concat(selected)
@@ -65,4 +73,4 @@ subset_df["MME"].describe()
 subset_df["transaction_year"].value_counts()
 
 # write to parquet file
-subset_df.to_parquet("../20_Intermediate_Files/Dosage_2.parquet")
+subset_df.to_parquet("../20_Intermediate_Files/Dosage_FULL.parquet")
