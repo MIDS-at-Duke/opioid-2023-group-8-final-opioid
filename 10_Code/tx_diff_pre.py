@@ -120,22 +120,22 @@ fig, ax = plt.subplots()
 
 # Plot pre_WA_plot
 pre_TX_plot = get_reg_fit(
-    pre_TX_death, "blue", "Death_per_capita", "Year", "Taxes", alpha=0.05
+    pre_TX_death, "blue", "Death_per_capita", "Year", "Texas", alpha=0.05
 )
 
 # Plot post_WA_plot
 post_TX_plot = get_reg_fit(
-    post_TX_death, "blue", "Death_per_capita", "Year", "Taxes", alpha=0.05
+    post_TX_death, "blue", "Death_per_capita", "Year", "Texas", alpha=0.05
 )
 
 # Plotting a vertical line for the policy year
 ax.axvline(x=2007, color="black", linestyle="--", label="Policy Year")
 
-plt.title("Pre-Post Analysis of Regulations on Opioid Death for Taxes")
+plt.title("Pre-Post Analysis of Regulations on Opioid Death for Texas")
 
 plt.legend(
     handles=[
-        Line2D([0], [0], color="blue", label="Taxes"),
+        Line2D([0], [0], color="blue", label="Texas"),
         Line2D([0], [0], color="green", linestyle="--", label="Policy Year"),
     ],
     loc="upper left",
@@ -143,7 +143,7 @@ plt.legend(
 
 # Show the plot
 # plt.subplots_adjust(left=0.17, right=0.95, top=0.95, bottom=0.1)
-plt.savefig("PrePostDeathTaxes.pdf", format="pdf")
+plt.savefig("PrePostDeathTexas.pdf", format="pdf")
 plt.show()
 
 # Plot all data on the same chart
@@ -151,12 +151,12 @@ fig, ax = plt.subplots()
 
 # Plot pre_WA_plot
 pre_TX_plot = get_reg_fit(
-    pre_TX_death, "blue", "Death_per_capita", "Year", "Taxes", alpha=0.05
+    pre_TX_death, "blue", "Death_per_capita", "Year", "Texas", alpha=0.05
 )
 
 # Plot post_WA_plot
 post_TX_plot = get_reg_fit(
-    post_TX_death, "blue", "Death_per_capita", "Year", "Taxes", alpha=0.05
+    post_TX_death, "blue", "Death_per_capita", "Year", "Texas", alpha=0.05
 )
 
 # Plot pre_crtl_plot
@@ -173,12 +173,12 @@ post_crtl_plot = get_reg_fit(
 ax.axvline(x=2007, color="green", linestyle="--", label="Policy Year")
 
 # Set chart title
-plt.title("Diff-in-Diff Analysis of Regulations on Opioid Deaths for Taxes")
+plt.title("Diff-in-Diff Analysis of Regulations on Opioid Deaths for Texas")
 
 # Display the legend with more specific labels
 plt.legend(
     handles=[
-        Line2D([0], [0], color="blue", label="Taxes"),
+        Line2D([0], [0], color="blue", label="Texas"),
         Line2D([0], [0], color="grey", label="Control States"),
         Line2D([0], [0], color="green", linestyle="--", label="Policy Year"),
     ],
@@ -188,5 +188,5 @@ plt.legend(
 
 # Show the plot
 plt.subplots_adjust(left=0.17, right=0.95, top=0.95, bottom=0.24)
-plt.savefig("DiffDeathTaxes.pdf", format="pdf")
+plt.savefig("DiffDeathTexas.pdf", format="pdf")
 plt.show()
