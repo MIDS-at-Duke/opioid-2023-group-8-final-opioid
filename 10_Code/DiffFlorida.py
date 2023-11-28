@@ -102,8 +102,7 @@ plt.title("Pre-Post Analysis of Regulations on Opioid Prescriptions for Florida"
 
 plt.legend(
     handles=[
-        Line2D([0], [0], color="blue", label="FL"),
-        Line2D([0], [0], color="grey", label="Control States"),
+        Line2D([0], [0], color="blue", label="Florida"),
         Line2D([0], [0], color="green", linestyle="--", label="Policy Year"),
     ],
     loc="upper left",

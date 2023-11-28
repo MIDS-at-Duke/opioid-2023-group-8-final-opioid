@@ -100,8 +100,7 @@ plt.title("Pre-Post Analysis of Regulations on Opioid Prescriptions for Washingt
 
 plt.legend(
     handles=[
-        Line2D([0], [0], color="blue", label="WA"),
-        Line2D([0], [0], color="grey", label="Control States"),
+        Line2D([0], [0], color="blue", label="Washington"),
         Line2D([0], [0], color="green", linestyle="--", label="Policy Year"),
     ],
     loc="upper left",
