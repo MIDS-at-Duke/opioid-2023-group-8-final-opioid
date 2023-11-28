@@ -107,7 +107,7 @@ plt.legend(
 )
 
 # Show the plot
-plt.savefig("../20_Intermediate_Files/PrePostPrescriptionsWashington.png")
+plt.savefig("../20_Intermediate_Files/PrePostPrescriptionsWashington.pdf", format="pdf")
 plt.show()
 
 # Diff in Diff Analysis
@@ -151,5 +151,5 @@ plt.legend(
 )
 
 # Show the plot
-plt.savefig("../20_Intermediate_Files/DiffPrescriptionsWashington.png")
+plt.savefig("../20_Intermediate_Files/DiffPrescriptionsWashington.pdf", format="pdf")
 plt.show()

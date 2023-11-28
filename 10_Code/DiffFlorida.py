@@ -109,7 +109,7 @@ plt.legend(
 )
 
 # Show the plot
-plt.savefig("../20_Intermediate_Files/PrePostPrescriptionsFlorida.png")
+plt.savefig("../20_Intermediate_Files/PrePostPrescriptionsFlorida.pdf", format="pdf")
 plt.show()
 
 # diff-in-diff plot
@@ -153,5 +153,5 @@ plt.legend(
 )
 
 # Show the plot
-plt.savefig("../20_Intermediate_Files/DiffPrescriptionsFlorida.png")
+plt.savefig("../20_Intermediate_Files/DiffPrescriptionsFlorida.pdf", format="pdf")
 plt.show()
