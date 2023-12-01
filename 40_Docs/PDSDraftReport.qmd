@@ -1,0 +1,177 @@
+---
+title: "Estimate the Impact of Opioid Control Policies"
+author: "Group 8: Ayush (ag758), Divya (ds655), Jiayi (jz456), Jiechen (jl1254)"
+date: "11/27/2023"
+format:
+  pdf:
+    include-in-header:
+      text: |
+        \addtokomafont{disposition}{\rmfamily}
+editor: visual
+---
+
+### Motivation
+
+The escalating crisis resulting from the over-prescription of opioids has led to a significant increase in dependency rates and a sharp rise in overdose fatalities. This study delves into the effectiveness of policy interventions at the county level, with a specific emphasis on Florida, Washington, and Texas---states that have implemented measures to regulate opioid distribution in response to this epidemic. Texas initiated reforms in 2007, followed by Florida and Washington in 2010 and 2012, respectively. The research aims to evaluate the longitudinal impact of these policies from 2007 to 2012 and beyond, addressing two key questions: How do policies intended to regulate the prescription of opioid medications impact the quantity of opioids dispensed? What is the impact of regulations on opioid drug prescriptions on the incidence of fatalities resulting from drug overdoses?
+
+In addressing the first question, our analysis indicates that opioid prescription regulations contribute to a notable decrease in the volume of opioids prescribed in certain states, exemplified by the case of Florida. Conversely, it is noteworthy that such regulations may not exert a similar impact on reducing the volume of opioids prescribed in other states, such as Washington.
+
+For the second research question, our analysis reveals that regulations on opioid drug prescriptions are linked with a discernible reduction in the volume of opioids prescribed, as clearly seen in the case of Florida. However, the direct connection between these regulatory measures and a decrease in fatalities from drug overdoses is less straightforward. States like Texas and Washington, while also adopting opioid policies, demonstrate the need for a more nuanced understanding of how these regulations intersect with factors influencing overdose fatalities. This highlights the complexity of the opioid crisis and suggests that addressing it effectively requires a multifaceted strategy, encompassing not just prescription controls but also broader public health initiatives.
+
+In conclusion, opioid policies are effective in overseeing opioid prescriptions but less so in mitigating the risk of drug overdoses.
+
+### Methodology
+
+The study investigates the impact on prescription trends and overdose deaths using two methodologies: pre-post analysis and difference-in-difference analysis. The pre-post analysis employs a comparison before and after the policy implementation to illustrate its effect on opioid prescription rates and overdose deaths. In the graph, a noticeable decrease in prescribed opioids and overdose deaths indicates the policy's effectiveness, while no change or increase suggests otherwise. It is crucial to acknowledge that factors beyond the policy may influence opioid prescriptions and overdose deaths. To address this, the study includes difference-in-difference comparisons with control states that lack such policies. Each treatment state is paired with three control states that have no opioid regulation. This analysis extends the evaluation to account for concurrent national events that could impact opioid prescription and overdose rates. The research aims to assess the longitudinal effects of policies from 2007 to 2012 and beyond. These approaches are crucial, as without them, the analysis may conflate state policy impacts with national trends, obscuring the genuine impact of localized interventions. By meticulously examining the data, our goal is to offer clear insights into the intricate relationship between policy actions and public health outcomes. This, in turn, provides a robust foundation for informed policymaking in the battle against the opioid epidemic.
+
+### Data
+
+For opioid prescription analysis, we rely on [DEA pain pill data obtained from the Washington Post](https://www.washingtonpost.com/national/2019/07/18/how-download-use-dea-pain-pills-database/?arc404=true), covering all prescription opioid drug shipments in the United States from 2006 to 2019. To examine opioid overdose deaths, we utilize data from [the US Vital Statistics records](https://www.dropbox.com/s/kad4dwebr88l3ud/US_VitalStatistics.zip?dl=0), providing a comprehensive summary of mortality for both drug and non-drug-related causes in every US county from 2003 to 2015. Additionally, we collect [population data](https://www.nhgis.org/). This inclusion enables us to calculate two key variables: the number of drugs prescribed per capita and the percentage of deaths attributed to drug-related causes within the population, addressing significant variations in population sizes among different counties.
+
+### Analysis
+
+#### Question 1: How do policies intended to regulate the prescription of opioid medications impact the quantity of opioids dispensed?
+
+##### Washington
+
+```{r,echo=FALSE, warning=FALSE,message=FALSE}
+library(png)
+library(grid)
+library(gridExtra)
+library(ggplot2)
+library(gplots)
+```
+
+```{r, echo= FALSE}
+img1 <- readPNG("PrePostPrescriptionsWashington.png")
+img2 <- readPNG("DiffPrescriptionsWashington.png")
+
+# Set up the grid layout
+grid.newpage()
+
+# Arrange and save the combined images to a Pdf file
+combined_image <- grid.arrange(
+  rasterGrob(img1, interpolate = TRUE),
+  rasterGrob(img2, interpolate = TRUE),
+  ncol = 2
+)
+
+ggsave("output_combined_Washington.pdf", combined_image, width = 10, height = 5)  # Adjust width and height as needed
+```
+
+Figure 1: The two plots depict opioid prescription trends before and after the implementation of the opioid policy in Washington in January 2011. In the left plot, illustrating the pre-post analysis, the trend of increasing opioid prescriptions slows down as the line becomes flatter following the policy's enactment. Meanwhile, the right plot, displaying the difference-in-differences analysis, underscores a distinction between Washington and other control states (Oklahoma, Oregon, and Idaho), where no opioid policy was introduced during that period. While Washington exhibited a stable trend in opioid prescriptions, the control states demonstrated a slightly decreasing trend.
+
+Based on the plot, our conclusion is that opioid regulation exerts a limited impact on opioid prescriptions in Washington. In the left graph, where opioid usage demonstrates an upward trajectory before the policy, the increasing trend slows down following the policy implementation. However, the right graph reveals that while both the control states (Oklahoma, Oregon, and Idaho) and Washington experienced increases in opioid prescriptions before the regulation, Washington exhibited a slight decline post-implementation, whereas the other control states showed a stronger decreasing trend after the policy.
+
+##### Florida
+
+```{r, echo= FALSE}
+img3 <- readPNG("PrePostPrescriptionsFlorida.png")
+img4 <- readPNG("DiffPrescriptionsFlorida.png")
+
+# Set up the grid layout
+grid.newpage()
+
+# Arrange and save the combined images to a PNG file
+combined_image <- grid.arrange(
+  rasterGrob(img3, interpolate = TRUE),
+  rasterGrob(img4, interpolate = TRUE),
+  ncol = 2
+)
+
+ggsave("output_combined_Florida.pdf", combined_image, width = 10, height = 5)
+```
+
+Figure 2: The two plots shows opioid prescription trends before and after the implementation of opioid policy in Florida in February 2010. The left plot, illustrating the pre-post analysis, reveals a sharp decline in opioid prescriptions following the policy's enactment. Meanwhile, the right plot, displaying the difference-in-differences analysis, highlights a contrast between Florida and other control states (Alabama, Tennessee, and Georgia), where no opioid policy was introduced during that period. As Florida experienced a decrease in opioid prescriptions, the control states exhibited an increasing trend.
+
+Upon analyzing the plot, our conclusion is that opioid regulation exerts a substantial impact on opioid prescriptions in Florida. In the left graph, where opioid usage demonstrates an upward trajectory before the policy, a notable decrease is observed following the policy implementation. The right graph further underscores this impact, revealing that while both the control states (Alabama, Tennessee, and Georgia) and Florida increases in opioid prescriptions before the regulation, Florida experienced a rapid decline post-implementation, whereas the other control states continued to exhibit an upward trend after the policy.
+
+#### Question 2: What is the impact of regulations on opioid drug prescriptions on the incidence of fatalities resulting from drug overdoses?
+
+##### Washington
+
+```{r, echo= FALSE}
+# Now read the converted PNG files
+img1 <- readPNG("PrePostDeathWashington.png")
+img2 <- readPNG("DiffDeathWashington.png")
+
+# Set up the grid layout
+grid.newpage()
+
+# Arrange and save the combined images to a Pdf file
+combined_image <- grid.arrange(
+  rasterGrob(img1, interpolate = TRUE),
+  rasterGrob(img2, interpolate = TRUE),
+  ncol = 2
+)
+
+ggsave("output_combined_Washington.pdf", combined_image, width = 10, height = 5)  # Adjust width and height as needed
+```
+
+Figure 3: This figure illustrates two key analyses of opioid prescription trends in Washington, centered around the implementation of an opioid policy. The left plot offers a pre-post analysis of the situation, while the right plot provides a difference-in-differences analysis.
+
+**Pre-Post Analysis (Left Plot)**: The left plot demonstrates the trend of opioid prescriptions in Washington over a specified period before and after the implementation of an opioid policy. This plot is expected to show the pattern of opioid prescriptions leading up to and following the policy's introduction. If a significant decrease in opioid prescriptions is observed after the policy enactment, it would suggest the effectiveness of the policy in reducing opioid usage. The key observation here would be the change in the trend line, indicating how the policy may have influenced prescription rates.
+
+**Difference-in-Differences Analysis (Right Plot)**: The right plot compares opioid prescription trends in Washington with those in control states, where no similar policy was implemented during the same timeframe. This plot aims to highlight the difference in trends between Washington and the control states, providing insight into the unique impact of Washington's opioid policy. A divergence in trends---where Washington shows a decrease in prescriptions post-policy compared to a stable or increasing trend in control states---would underscore the specific effect of the policy in Washington compared to regions without such a policy.
+
+In summary, the combined interpretation of these plots suggests a thorough examination of the impact of Washington's opioid policy on prescription trends. The pre-post analysis plot may reveal the direct effect of the policy within Washington, while the difference-in-differences plot offers a broader perspective by contrasting these trends with those in other states. This comparative analysis is crucial in understanding the policy's effectiveness in curbing opioid prescriptions and its potential implications on opioid-related health issues.
+
+##### Florida
+
+```{r, echo= FALSE}
+# Now read the converted PNG files
+img1 <- readPNG("PrePostDeathFlorida.png")
+img2 <- readPNG("DiffDeathFlorida.png")
+
+# Set up the grid layout
+grid.newpage()
+
+# Arrange and save the combined images to a Pdf file
+combined_image <- grid.arrange(
+  rasterGrob(img1, interpolate = TRUE),
+  rasterGrob(img2, interpolate = TRUE),
+  ncol = 2
+)
+
+ggsave("output_combined_Florida.pdf", combined_image, width = 10, height = 5)  # Adjust width and height as needed
+```
+
+Figure 4: This figure presents two analyses of opioid prescription trends in Florida around the introduction of an opioid policy. The left plot shows the pre-post analysis, and the right plot shows the difference-in-differences analysis.
+
+**Pre-Post Analysis (Left Plot)**: The left plot is expected to display the trend of opioid prescriptions in Florida for the period before and after the policy implementation. The plot likely illustrates any significant changes in opioid prescription rates following the introduction of the policy. A noticeable decline post-policy would suggest the policy's efficacy in reducing opioid prescriptions. The key observation would be the shift in the trend line, indicating how the policy may have impacted prescription practices.
+
+**Difference-in-Differences Analysis (Right Plot)**: The right plot contrasts the opioid prescription trends in Florida with those in control states, where no similar opioid policy was implemented during the same period. This plot aims to highlight the differential effect of the policy by comparing trends in Florida with the trends in control states. A divergence in trends---characterized by a decrease in opioid prescriptions in Florida as opposed to stable or increasing trends in the control states---would emphasize the distinctive impact of Florida's opioid policy.
+
+In summary, these analyses collectively suggest that the opioid policy in Florida had a significant effect on reducing opioid prescriptions. The pre-post analysis plot may reveal the direct impact of the policy within Florida, while the difference-in-differences plot provides a broader perspective by comparing these trends with those in other states. This comparative approach is crucial for understanding the policy's effectiveness in controlling opioid prescriptions and its potential implications for opioid-related health issues.
+
+##### Texas
+
+```{r, echo= FALSE}
+# Now read the converted PNG files
+img1 <- readPNG("PrePostDeathTexas.png")
+img2 <- readPNG("DiffDeathTexas.png")
+
+# Set up the grid layout
+grid.newpage()
+
+# Arrange and save the combined images to a Pdf file
+combined_image <- grid.arrange(
+  rasterGrob(img1, interpolate = TRUE),
+  rasterGrob(img2, interpolate = TRUE),
+  ncol = 2
+)
+
+ggsave("output_combined_Texas.pdf", combined_image, width = 10, height = 5)  # Adjust width and height as needed
+```
+
+Figure 5: This figure presents two distinct analyses of opioid prescription trends in Texas surrounding the implementation of an opioid policy in 2007. The left plot showcases the pre-post analysis, while the right plot demonstrates the difference-in-differences analysis.
+
+**Pre-Post Analysis (Left Plot)**: This plot indicates the trend of opioid prescriptions in Texas over the four years before and after the policy implementation in 2007. It highlights a significant trend change post-policy. Prior to the policy, there appears to be an upward trend in opioid prescriptions, suggesting increasing usage. Following the enactment of the policy, a marked decline in prescriptions is observed, indicating the policy's effectiveness in reducing opioid prescriptions. This change is pivotal in understanding the policy's direct impact on opioid availability in Texas.
+
+**Difference-in-Differences Analysis (Right Plot)**: This plot contrasts the trends in opioid prescriptions in Texas with those in selected control states where no similar opioid policy was introduced. The analysis reveals differential trends: both Texas and the control states show an increase in opioid prescriptions before the policy. However, post-implementation, a stark divergence is observed. Texas exhibits a pronounced decrease in opioid prescriptions, while the control states continue on an upward or stable trend. This comparison underscores the unique impact of the Texas opioid policy against a backdrop of broader regional trends.
+
+In summary, these analyses collectively suggest that the opioid regulation in Texas had a significant and distinct effect on reducing opioid prescriptions, as evidenced by the noticeable decline in prescriptions post-policy, especially when compared to the trends in control states. This divergence highlights the efficacy of the policy in curtailing opioid prescriptions, a critical factor in addressing the broader challenge of opioid-related issues, including overdoses and dependency.
+
+### Conclusion
+
+In our analysis, we have determined that opioid regulation plays a crucial role in managing opioid prescriptions but a lesser role in preventing drug overdoses. However, it is important to acknowledge certain limitations within the study, primarily stemming from the processing of data. Consequently, there is room for potential enhancements. One proposed improvement involves implementing a more rigorous approach to selecting control states in diff-in-diff analysis. This is imperative as some states may lack explicit opioid regulations but possess alternative regulations that exert a significant influence on opioid usage and overdose rates. Therefore, refining the methodology to ensure a more nuanced and comprehensive selection of control states will contribute to the accuracy and reliability of the study's findings.
