@@ -10,7 +10,17 @@ pd.set_option("mode.copy_on_write", True)
 # as raw data file is large for github, download data to local
 # adjust the path to your local path
 PATH = "../00_Source_Data/arcos_all_washpost.tsv"
-csv_chunk = pd.read_table(PATH, chunksize=50_000, low_memory=False)
+columns_subset = [
+    "BUYER_STATE",
+    "BUYER_COUNTY",
+    "TRANSACTION_DATE",
+    "MME",
+]
+csv_chunk = pd.read_table(
+    PATH, chunksize=50_000, usecols=columns_subset, low_memory=False
+)
+
+print("Data subset done.")
 
 selected = []
 for i, chunk in enumerate(csv_chunk):
@@ -19,6 +29,7 @@ for i, chunk in enumerate(csv_chunk):
         | (chunk["BUYER_STATE"] == "TX")
         | (chunk["BUYER_STATE"] == "FL")
         | (chunk["BUYER_STATE"] == "OR")
+        | (chunk["BUYER_STATE"] == "NY")
         | (chunk["BUYER_STATE"] == "ID")
         | (chunk["BUYER_STATE"] == "OK")
         | (chunk["BUYER_STATE"] == "AR")
