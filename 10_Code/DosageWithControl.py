@@ -14,7 +14,8 @@ columns_subset = [
     "BUYER_STATE",
     "BUYER_COUNTY",
     "TRANSACTION_DATE",
-    "MME",
+    "MME_Conversion_Factor",
+    "CALC_BASE_WT_IN_GM",
 ]
 csv_chunk = pd.read_table(
     PATH, chunksize=50_000, usecols=columns_subset, low_memory=False
@@ -24,21 +25,7 @@ print("Data subset done.")
 
 selected = []
 for i, chunk in enumerate(csv_chunk):
-    append_chunk = chunk.loc[
-        (chunk["BUYER_STATE"] == "WA")
-        | (chunk["BUYER_STATE"] == "TX")
-        | (chunk["BUYER_STATE"] == "FL")
-        | (chunk["BUYER_STATE"] == "OR")
-        | (chunk["BUYER_STATE"] == "NY")
-        | (chunk["BUYER_STATE"] == "ID")
-        | (chunk["BUYER_STATE"] == "OK")
-        | (chunk["BUYER_STATE"] == "AR")
-        | (chunk["BUYER_STATE"] == "LA")
-        | (chunk["BUYER_STATE"] == "GA")
-        | (chunk["BUYER_STATE"] == "AL")
-        | (chunk["BUYER_STATE"] == "TN")
-    ]
-    selected.append(append_chunk)
+    selected.append(chunk)
 data_selected = pd.concat(selected)
 
 print("Data selection done.")
@@ -58,6 +45,9 @@ subset_df.drop(columns=["TRANSACTION_DATE"], inplace=True)
 subset_df.columns[subset_df.isnull().any()]
 # Filter out NA values
 subset_df = subset_df[subset_df["BUYER_COUNTY"].notna()]
+
+# Calculate the morphine equivalent for each record
+subset_df["MME"] = subset_df["MME_Conversion_Factor"] * subset_df["CALC_BASE_WT_IN_GM"]
 
 # Sum the dosage
 subset_df["MME"] = subset_df.groupby(
