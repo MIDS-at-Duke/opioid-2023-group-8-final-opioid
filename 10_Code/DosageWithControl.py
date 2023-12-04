@@ -41,24 +41,10 @@ for i, chunk in enumerate(csv_chunk):
     selected.append(append_chunk)
 data_selected = pd.concat(selected)
 
-# modify and save to parquet file
-data_selected["BUYER_STATE"].value_counts()
-data_selected["NDC_NO"] = data_selected["NDC_NO"].astype(str)
-data_selected.to_parquet("../20_Intermediate_Files/threeState.parquet")
+print("Data selection done.")
 
-
-# Subset, calculate dosage, and transform data
-df = pd.read_parquet("../20_Intermediate_Files/threeState.parquet")
-
-# subset data with columns needed
-subset_df = df[
-    [
-        "BUYER_STATE",
-        "BUYER_COUNTY",
-        "TRANSACTION_DATE",
-        "MME",
-    ]
-]
+# create a copy and perform data transformation
+subset_df = data_selected.copy()
 
 # Create year variable
 # Convert the 'transaction_date' column to datetime format
@@ -84,4 +70,4 @@ subset_df["MME"].describe()
 subset_df["transaction_year"].value_counts()
 
 # write to parquet file
-subset_df.to_parquet("../20_Intermediate_Files/Dosage_FULL.parquet")
+subset_df.to_parquet("../20_Intermediate_Files/DosageWithControl.parquet")
