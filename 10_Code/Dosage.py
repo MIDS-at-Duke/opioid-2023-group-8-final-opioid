@@ -17,49 +17,36 @@ columns_subset = [
     "MME_Conversion_Factor",
     "CALC_BASE_WT_IN_GM",
 ]
-csv_chunk = pd.read_table(
-    PATH, chunksize=50_000, usecols=columns_subset, low_memory=False
+# define chunk size
+chunk_size = 50_000
+
+# create empty list to store the results
+total_morphine_equivalents = []
+
+# Process each chunk
+for chunk in pd.read_csv(
+    PATH,
+    sep="\t",
+    usecols=columns_subset,
+    chunksize=chunk_size,
+    low_memory=False,
+):
+    # Convert TRANSACTION_DATE to year
+    chunk["Year"] = pd.to_datetime(chunk["TRANSACTION_DATE"], format="%Y-%m-%d").dt.year
+
+    # Calculate the morphine equivalent for each record for milligrams
+    chunk["MME"] = chunk["MME_Conversion_Factor"] * chunk["CALC_BASE_WT_IN_GM"] * 1000
+
+    total_morphine_equivalents.append(chunk)
+
+# Concatenate the results from all chunks
+final_result = pd.concat(total_morphine_equivalents)
+
+# Group by county, state, and year to ensure unique entries and sum if appearing multiple times
+final_result = (
+    final_result.groupby(["BUYER_COUNTY", "BUYER_STATE", "Year"])["MME"]
+    .sum()
+    .reset_index()
 )
 
-print("Data subset done.")
-
-selected = []
-for i, chunk in enumerate(csv_chunk):
-    selected.append(chunk)
-data_selected = pd.concat(selected)
-
-print("Data selection done.")
-
-# create a copy and perform data transformation
-subset_df = data_selected.copy()
-
-# Create year variable
-# Convert the 'transaction_date' column to datetime format
-subset_df["TRANSACTION_DATE"] = pd.to_datetime(subset_df["TRANSACTION_DATE"])
-# Extract the year and create a new column 'transaction_year'
-subset_df["transaction_year"] = subset_df["TRANSACTION_DATE"].dt.year
-# Drop the original 'transaction_date' column
-subset_df.drop(columns=["TRANSACTION_DATE"], inplace=True)
-
-# Check NA values, find BUYER_COUNTY has NA values
-subset_df.columns[subset_df.isnull().any()]
-# Filter out NA values
-subset_df = subset_df[subset_df["BUYER_COUNTY"].notna()]
-
-# Calculate the morphine equivalent for each record
-subset_df["MME"] = subset_df["MME_Conversion_Factor"] * subset_df["CALC_BASE_WT_IN_GM"]
-# Drop the original 'MME_Conversion_Factor', 'CALC_BASE_WT_IN_GM' column
-subset_df.drop(columns=["MME_Conversion_Factor", "CALC_BASE_WT_IN_GM"], inplace=True)
-
-# Sum the dosage
-subset_df["MME"] = subset_df.groupby(
-    ["BUYER_STATE", "BUYER_COUNTY", "transaction_year"]
-)["MME"].transform("sum")
-subset_df = subset_df.drop_duplicates()
-
-# Data overview
-subset_df["MME"].describe()
-subset_df["transaction_year"].value_counts()
-
-# write to parquet file
-subset_df.to_parquet("../20_Intermediate_Files/AllDosage.parquet")
+final_result.to_parquet("../20_Intermediate_Files/AllDosage.parquet")
