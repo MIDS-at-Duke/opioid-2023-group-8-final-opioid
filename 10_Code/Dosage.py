@@ -10,44 +10,28 @@ pd.set_option("mode.copy_on_write", True)
 # as raw data file is large for github, download data to local
 # adjust the path to your local path
 PATH = "../00_Source_Data/arcos_all_washpost.tsv"
-csv_chunk = pd.read_table(PATH, chunksize=50_000, low_memory=False)
+columns_subset = [
+    "BUYER_STATE",
+    "BUYER_COUNTY",
+    "TRANSACTION_DATE",
+    "MME_Conversion_Factor",
+    "CALC_BASE_WT_IN_GM",
+]
+csv_chunk = pd.read_table(
+    PATH, chunksize=50_000, usecols=columns_subset, low_memory=False
+)
+
+print("Data subset done.")
 
 selected = []
 for i, chunk in enumerate(csv_chunk):
-    append_chunk = chunk.loc[
-        (chunk["BUYER_STATE"] == "WA")
-        | (chunk["BUYER_STATE"] == "TX")
-        | (chunk["BUYER_STATE"] == "FL")
-        | (chunk["BUYER_STATE"] == "OR")
-        | (chunk["BUYER_STATE"] == "ID")
-        | (chunk["BUYER_STATE"] == "OK")
-        | (chunk["BUYER_STATE"] == "AR")
-        | (chunk["BUYER_STATE"] == "LA")
-        | (chunk["BUYER_STATE"] == "GA")
-        | (chunk["BUYER_STATE"] == "AL")
-        | (chunk["BUYER_STATE"] == "TN")
-    ]
-    selected.append(append_chunk)
+    selected.append(chunk)
 data_selected = pd.concat(selected)
 
-# modify and save to parquet file
-data_selected["BUYER_STATE"].value_counts()
-data_selected["NDC_NO"] = data_selected["NDC_NO"].astype(str)
-data_selected.to_parquet("../20_Intermediate_Files/threeState.parquet")
+print("Data selection done.")
 
-
-# Subset, calculate dosage, and transform data
-df = pd.read_parquet("../20_Intermediate_Files/threeState.parquet")
-
-# subset data with columns needed
-subset_df = df[
-    [
-        "BUYER_STATE",
-        "BUYER_COUNTY",
-        "TRANSACTION_DATE",
-        "MME",
-    ]
-]
+# create a copy and perform data transformation
+subset_df = data_selected.copy()
 
 # Create year variable
 # Convert the 'transaction_date' column to datetime format
@@ -62,6 +46,9 @@ subset_df.columns[subset_df.isnull().any()]
 # Filter out NA values
 subset_df = subset_df[subset_df["BUYER_COUNTY"].notna()]
 
+# Calculate the morphine equivalent for each record
+subset_df["MME"] = subset_df["MME_Conversion_Factor"] * subset_df["CALC_BASE_WT_IN_GM"]
+
 # Sum the dosage
 subset_df["MME"] = subset_df.groupby(
     ["BUYER_STATE", "BUYER_COUNTY", "transaction_year"]
@@ -73,4 +60,4 @@ subset_df["MME"].describe()
 subset_df["transaction_year"].value_counts()
 
 # write to parquet file
-subset_df.to_parquet("../20_Intermediate_Files/Dosage_FULL.parquet")
+subset_df.to_parquet("../20_Intermediate_Files/AllDosage.parquet")
