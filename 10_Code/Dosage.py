@@ -48,6 +48,8 @@ subset_df = subset_df[subset_df["BUYER_COUNTY"].notna()]
 
 # Calculate the morphine equivalent for each record
 subset_df["MME"] = subset_df["MME_Conversion_Factor"] * subset_df["CALC_BASE_WT_IN_GM"]
+# Drop the original 'MME_Conversion_Factor', 'CALC_BASE_WT_IN_GM' column
+subset_df.drop(columns=["MME_Conversion_Factor", "CALC_BASE_WT_IN_GM"], inplace=True)
 
 # Sum the dosage
 subset_df["MME"] = subset_df.groupby(
