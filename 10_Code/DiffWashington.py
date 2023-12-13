@@ -27,7 +27,7 @@ shipment_subset.loc[:, "ships_per_cap"] = (
 # subset the data for only WA
 treatment_state = shipment_subset[shipment_subset["State Code"] == "WA"]
 # subset the data for only the control states
-controls = ["OR", "OK", "ID"]
+controls = ["OH", "ME", "MN"]
 control_states = shipment_subset[shipment_subset["State Code"].isin(controls)]
 
 # specify the years needed before the policy change
@@ -75,7 +75,7 @@ def get_reg_fit(data, color, yvar, xvar, legend, alpha=0.05):
     )
 
     plt.xlabel(xvar)
-    plt.ylabel("Prescriptions per Capita")
+    plt.ylabel("Morphine Milligram Equivalent per Capita for Opioid")
 
     return predictions
 
@@ -96,7 +96,7 @@ post_WA_plot = get_reg_fit(
 # Plotting a vertical line for the policy year
 ax.axvline(x=2012, color="black", linestyle="--", label="Policy Year")
 
-plt.title("Pre-Post Analysis of Regulations on Opioid Prescriptions for Washington")
+plt.title("Pre-Post Analysis of Regulations on Opioid for Washington")
 
 plt.legend(
     handles=[
@@ -107,7 +107,7 @@ plt.legend(
 )
 
 # Show the plot
-plt.savefig("../20_Intermediate_Files/PrePostPrescriptionsWashington.pdf", format="pdf")
+plt.savefig("../20_Intermediate_Files/PrePostOpioidsWashington.png", format="png")
 plt.show()
 
 # Diff in Diff Analysis
@@ -138,7 +138,7 @@ post_crtl_plot = get_reg_fit(
 ax.axvline(x=2012, color="green", linestyle="--", label="Policy Year")
 
 # Set chart title
-plt.title("Diff-in-Diff Analysis of Regulations on Opioid Prescriptions for Washington")
+plt.title("Diff-in-Diff Analysis of Regulations on Opioid for Washington")
 
 # Display the legend with more specific labels
 plt.legend(
@@ -151,5 +151,5 @@ plt.legend(
 )
 
 # Show the plot
-plt.savefig("../20_Intermediate_Files/DiffPrescriptionsWashington.pdf", format="pdf")
+plt.savefig("../20_Intermediate_Files/DiffOpioidsWashington.png", format="png")
 plt.show()
