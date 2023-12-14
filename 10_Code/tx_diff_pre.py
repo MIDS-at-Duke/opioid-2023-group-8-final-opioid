@@ -1,10 +1,10 @@
 import pandas as pd
+import numpy as np
+import statsmodels.formula.api as smf
 import seaborn as sns
 import matplotlib.pyplot as plt
 import seaborn.objects as so
 from matplotlib.lines import Line2D
-import numpy as np
-import statsmodels.formula.api as smf
 import warnings
 
 warnings.filterwarnings("ignore")
@@ -14,49 +14,26 @@ data_3 = "https://github.com/MIDS-at-Duke/opioid-2023-group-8-final-opioid/raw/d
 
 tx_and_control_death = pd.read_csv(data_3)
 
-# Calculating death_per_capita
-tx_and_control_death["Death_per_capita"] = (
-    tx_and_control_death["Deaths"] / tx_and_control_death["Population"]
-)
+tx_and_control_death["Deaths"].sum()
+# (45420.0)
 
-tx_subset = tx_and_control_death[
-    (tx_and_control_death["Year"] >= 2003) & (tx_and_control_death["Year"] <= 2010)
-]
+# Dropping rows where there is any NA value
+tx_and_control_death_cleaned = tx_and_control_death.dropna()
+
+# Calculating death_per_capita
+tx_and_control_death_cleaned["Death_per_capita"] = (
+    tx_and_control_death_cleaned["Deaths"] / tx_and_control_death_cleaned["Population"]
+)
 
 # subset the data for only TX
-tx_treatment_state = tx_and_control_death[tx_and_control_death["State Code"] == "TX"]
+tx_treatment_state = tx_and_control_death_cleaned[
+    tx_and_control_death_cleaned["State Code"] == "TX"
+]
 # subset the data for only the control states
-controls = ["LA", "OK", "AR"]
-control_states = tx_and_control_death[tx_and_control_death["State Code"].isin(controls)]
-
-tx_mean_deaths = tx_treatment_state["Death_per_capita"].mean()
-# print("Mean of Death_per_capita:", fl_mean_deaths)
-# print(fl_treatment_state.isnull().sum())
-# Fill NaN values in the 'Death_per_capita' column with the mean value
-tx_treatment_state["Death_per_capita"] = tx_treatment_state["Death_per_capita"].fillna(
-    tx_mean_deaths
-)
-
-# Check if there are any NaN values left in the 'Death_per_capita' column
-# print(fl_treatment_state["Death_per_capita"].isnull().sum())
-
-# Estimate and fill the missing 'Deaths' values
-tx_treatment_state.loc[tx_treatment_state["Deaths"].isnull(), "Deaths"] = (
-    tx_treatment_state["Death_per_capita"] * tx_treatment_state["Population"]
-)
-
-control_mean_deaths = control_states["Death_per_capita"].mean()
-# print("Mean of Death_per_capita in control_states:", control_mean_deaths)
-control_states["Death_per_capita"] = control_states["Death_per_capita"].fillna(
-    control_mean_deaths
-)
-# print(control_states["Death_per_capita"].isnull().sum())
-
-
-# Estimate and fill the missing 'Deaths' values
-control_states.loc[control_states["Deaths"].isnull(), "Deaths"] = (
-    control_states["Death_per_capita"] * control_states["Population"]
-)
+controls = ["MO", "MN", "AR"]
+control_states = tx_and_control_death_cleaned[
+    tx_and_control_death_cleaned["State Code"].isin(controls)
+]
 
 sub_tx_treatment_state = tx_treatment_state[
     (tx_treatment_state["Year"] >= 2003) & (tx_treatment_state["Year"] <= 2010)
@@ -118,14 +95,18 @@ def get_reg_fit(data, color, yvar, xvar, legend, alpha=0.05):
 # Create subplots
 fig, ax = plt.subplots()
 
-# Plot pre_WA_plot
+# Scale up the 'Death_per_capita' values by multiplying by 100000
+pre_TX_death["Death_per_capita_scaled"] = pre_TX_death["Death_per_capita"] * 100000
+post_TX_death["Death_per_capita_scaled"] = post_TX_death["Death_per_capita"] * 100000
+
+# Plot pre_TX_plot
 pre_TX_plot = get_reg_fit(
-    pre_TX_death, "blue", "Death_per_capita", "Year", "Texas", alpha=0.05
+    pre_TX_death, "blue", "Death_per_capita_scaled", "Year", "Texas", alpha=0.05
 )
 
-# Plot post_WA_plot
+# Plot post_TX_plot
 post_TX_plot = get_reg_fit(
-    post_TX_death, "blue", "Death_per_capita", "Year", "Texas", alpha=0.05
+    post_TX_death, "blue", "Death_per_capita_scaled", "Year", "Texas", alpha=0.05
 )
 
 # Plotting a vertical line for the policy year
@@ -142,31 +123,47 @@ plt.legend(
 )
 
 # Show the plot
-# plt.subplots_adjust(left=0.17, right=0.95, top=0.95, bottom=0.1)
-plt.savefig("PrePostDeathTexas.pdf", format="pdf")
+plt.savefig("PrePostDeathTexas.png", format="png")
 plt.show()
 
 # Plot all data on the same chart
 fig, ax = plt.subplots()
 
-# Plot pre_WA_plot
+# Plot pre_TX_plot
 pre_TX_plot = get_reg_fit(
-    pre_TX_death, "blue", "Death_per_capita", "Year", "Texas", alpha=0.05
+    pre_TX_death, "blue", "Death_per_capita_scaled", "Year", "Texas", alpha=0.05
 )
 
-# Plot post_WA_plot
+# Plot post_TX_plot
 post_TX_plot = get_reg_fit(
-    post_TX_death, "blue", "Death_per_capita", "Year", "Texas", alpha=0.05
+    post_TX_death, "blue", "Death_per_capita_scaled", "Year", "Texas", alpha=0.05
+)
+
+
+# Ensure the same scaling is applied to the control states dataframes
+pre_crtl_death["Death_per_capita_scaled"] = pre_crtl_death["Death_per_capita"] * 100000
+post_crtl_death["Death_per_capita_scaled"] = (
+    post_crtl_death["Death_per_capita"] * 100000
 )
 
 # Plot pre_crtl_plot
 pre_crtl_plot = get_reg_fit(
-    pre_crtl_death, "grey", "Death_per_capita", "Year", "Control States", alpha=0.05
+    pre_crtl_death,
+    "grey",
+    "Death_per_capita_scaled",
+    "Year",
+    "Control States",
+    alpha=0.05,
 )
 
 # Plot post_crtl_plot
 post_crtl_plot = get_reg_fit(
-    post_crtl_death, "grey", "Death_per_capita", "Year", "Control States", alpha=0.05
+    post_crtl_death,
+    "grey",
+    "Death_per_capita_scaled",
+    "Year",
+    "Control States",
+    alpha=0.05,
 )
 
 # Plotting a vertical line for the policy year
@@ -183,10 +180,9 @@ plt.legend(
         Line2D([0], [0], color="green", linestyle="--", label="Policy Year"),
     ],
     loc="upper left",
-    bbox_to_anchor=(0.1, -0.1),
 )
 
 # Show the plot
 plt.subplots_adjust(left=0.17, right=0.95, top=0.95, bottom=0.24)
-plt.savefig("DiffDeathTexas.pdf", format="pdf")
+plt.savefig("DiffDeathTexas.png", format="png")
 plt.show()

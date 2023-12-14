@@ -1,72 +1,49 @@
 import pandas as pd
+import numpy as np
+import statsmodels.formula.api as smf
 import seaborn as sns
 import matplotlib.pyplot as plt
 import seaborn.objects as so
 from matplotlib.lines import Line2D
-import numpy as np
-import statsmodels.formula.api as smf
 import warnings
 
 warnings.filterwarnings("ignore")
 pd.set_option("mode.copy_on_write", True)
 
 data_1 = "https://github.com/MIDS-at-Duke/opioid-2023-group-8-final-opioid/raw/data_merging/20_Intermediate_Files/Washington_Merged.csv"
-
 wa_and_control_death = pd.read_csv(data_1)
 
-# Calculating death_per_capita
-wa_and_control_death["Death_per_capita"] = (
-    wa_and_control_death["Deaths"] / wa_and_control_death["Population"]
-)
+wa_and_control_death["Deaths"].sum()
+# (41010.0)
 
-wa_subset = wa_and_control_death[
-    (wa_and_control_death["Year"] >= 2008) & (wa_and_control_death["Year"] <= 2015)
-]
+# Dropping rows where there is any NA value
+wa_and_control_death_cleaned = wa_and_control_death.dropna()
+
+# Calculating death_per_capita
+wa_and_control_death_cleaned["Death_per_capita"] = (
+    wa_and_control_death_cleaned["Deaths"] / wa_and_control_death_cleaned["Population"]
+)
 
 # subset the data for only WA
-wa_treatment_state = wa_and_control_death[wa_and_control_death["State Code"] == "WA"]
+wa_treatment_state = wa_and_control_death_cleaned[
+    wa_and_control_death_cleaned["State Code"] == "WA"
+]
 # subset the data for only the control states
-controls = ["OR", "OK", "ID"]
-control_states = wa_and_control_death[wa_and_control_death["State Code"].isin(controls)]
-
-wa_mean_deaths = wa_treatment_state["Death_per_capita"].mean()
-# print("Mean of Death_per_capita:", wa_mean_deaths)
-# print(wa_treatment_state.isnull().sum())
-# Fill NaN values in the 'Death_per_capita' column with the mean value
-wa_treatment_state["Death_per_capita"] = wa_treatment_state["Death_per_capita"].fillna(
-    wa_mean_deaths
-)
-
-# Check if there are any NaN values left in the 'Death_per_capita' column
-# print(wa_treatment_state["Death_per_capita"].isnull().sum())
-
-# Estimate and fill the missing 'Deaths' values
-wa_treatment_state.loc[wa_treatment_state["Deaths"].isnull(), "Deaths"] = (
-    wa_treatment_state["Death_per_capita"] * wa_treatment_state["Population"]
-)
-
-control_mean_deaths = control_states["Death_per_capita"].mean()
-# print("Mean of Death_per_capita in control_states:", control_mean_deaths)
-control_states["Death_per_capita"] = control_states["Death_per_capita"].fillna(
-    control_mean_deaths
-)
-# print(control_states["Death_per_capita"].isnull().sum())
-
-# Estimate and fill the missing 'Deaths' values
-control_states.loc[control_states["Deaths"].isnull(), "Deaths"] = (
-    control_states["Death_per_capita"] * control_states["Population"]
-)
+controls = ["OH", "MN", "ME"]
+control_states = wa_and_control_death_cleaned[
+    wa_and_control_death_cleaned["State Code"].isin(controls)
+]
 
 sub_wa_treatment_state = wa_treatment_state[
-    (wa_treatment_state["Year"] >= 2008) & (wa_treatment_state["Year"] <= 2015)
+    (wa_treatment_state["Year"] >= 2003) & (wa_treatment_state["Year"] <= 2015)
 ]
 
 sub_control_states = control_states[
-    (control_states["Year"] >= 2008) & (control_states["Year"] <= 2015)
+    (control_states["Year"] >= 2003) & (control_states["Year"] <= 2015)
 ]
 
 # specify the years needed before the policy change
-year = [2008, 2009, 2010, 2011]
+year = [2003, 2004, 2005, 2006, 2007, 2008, 2009, 2010, 2011]
 # create new dataframe with only data from those years
 pre_WA_death = sub_wa_treatment_state.loc[sub_wa_treatment_state["Year"].isin(year)]
 post_WA_death = sub_wa_treatment_state.loc[~sub_wa_treatment_state["Year"].isin(year)]
@@ -76,7 +53,7 @@ post_crtl_death = sub_control_states.loc[~sub_control_states["Year"].isin(year)]
 
 
 def get_reg_fit(data, color, yvar, xvar, legend, alpha=0.05):
-    years = list(np.arange(2008, 2015, 1))
+    years = list(np.arange(2003, 2015, 1))
 
     # Grid for predicted values
     x = data.loc[pd.notnull(data[yvar]), xvar]
@@ -117,14 +94,18 @@ def get_reg_fit(data, color, yvar, xvar, legend, alpha=0.05):
 # Create subplots
 fig, ax = plt.subplots()
 
+# Scale up the 'Death_per_capita' values by multiplying by 100000
+pre_WA_death["Death_per_capita_scaled"] = pre_WA_death["Death_per_capita"] * 100000
+post_WA_death["Death_per_capita_scaled"] = post_WA_death["Death_per_capita"] * 100000
+
 # Plot pre_WA_plot
 pre_WA_plot = get_reg_fit(
-    pre_WA_death, "blue", "Death_per_capita", "Year", "Washington", alpha=0.05
+    pre_WA_death, "blue", "Death_per_capita_scaled", "Year", "Washington", alpha=0.05
 )
 
 # Plot post_WA_plot
 post_WA_plot = get_reg_fit(
-    post_WA_death, "blue", "Death_per_capita", "Year", "Washington", alpha=0.05
+    post_WA_death, "blue", "Death_per_capita_scaled", "Year", "Washington", alpha=0.05
 )
 
 # Plotting a vertical line for the policy year
@@ -142,30 +123,47 @@ plt.legend(
 
 # Show the plot
 plt.subplots_adjust(left=0.17, right=0.95, top=0.95, bottom=0.1)
-plt.savefig("PrePostDeathWashington.pdf", format="pdf")
+plt.savefig("PrePostDeathWashington.png", format="png")
 plt.show()
 
 # Plot all data on the same chart
 fig, ax = plt.subplots()
 
 # Plot pre_WA_plot
+
 pre_WA_plot = get_reg_fit(
-    pre_WA_death, "blue", "Death_per_capita", "Year", "Washington", alpha=0.05
+    pre_WA_death, "blue", "Death_per_capita_scaled", "Year", "Washington", alpha=0.05
 )
 
 # Plot post_WA_plot
 post_WA_plot = get_reg_fit(
-    post_WA_death, "blue", "Death_per_capita", "Year", "Washington", alpha=0.05
+    post_WA_death, "blue", "Death_per_capita_scaled", "Year", "Washington", alpha=0.05
+)
+
+# Ensure the same scaling is applied to the control states dataframes
+pre_crtl_death["Death_per_capita_scaled"] = pre_crtl_death["Death_per_capita"] * 100000
+post_crtl_death["Death_per_capita_scaled"] = (
+    post_crtl_death["Death_per_capita"] * 100000
 )
 
 # Plot pre_crtl_plot
 pre_crtl_plot = get_reg_fit(
-    pre_crtl_death, "grey", "Death_per_capita", "Year", "Control States", alpha=0.05
+    pre_crtl_death,
+    "grey",
+    "Death_per_capita_scaled",
+    "Year",
+    "Control States",
+    alpha=0.05,
 )
 
 # Plot post_crtl_plot
 post_crtl_plot = get_reg_fit(
-    post_crtl_death, "grey", "Death_per_capita", "Year", "Control States", alpha=0.05
+    post_crtl_death,
+    "grey",
+    "Death_per_capita_scaled",
+    "Year",
+    "Control States",
+    alpha=0.05,
 )
 
 # Plotting a vertical line for the policy year
@@ -186,5 +184,5 @@ plt.legend(
 
 # Show the plot
 plt.subplots_adjust(left=0.15, right=0.95, top=0.95, bottom=0.1)
-plt.savefig("DiffDeathWashington.pdf", format="pdf")
+plt.savefig("DiffDeathWashington.png", format="png")
 plt.show()
