@@ -1,0 +1,210 @@
+---
+title: "Estimate the Impact of Opioid Control Policies"
+author: "Group 8: Ayush (ag758), Divya (ds655), Jiayi (jz456), Jiechen (jl1254)"
+date: "11/27/2023"
+format:
+  pdf:
+    include-in-header:
+      text: |
+        \addtokomafont{disposition}{\rmfamily}
+editor: visual
+---
+
+## Executive Summary
+
+The escalating crisis resulting from the over-usage of opioids has led to a significant increase in dependency rates and a sharp rise in overdose fatalities. This study delves into the effectiveness of policy interventions at the county level, with a specific emphasis on Florida, Washington, and Texas - states that have implemented measures to regulate opioid distribution in response to this epidemic. Texas initiated reforms in 2007, followed by Florida and Washington in 2010 and 2012, respectively. The research aims to evaluate the longitudinal impact of these policies from 2007 to 2012 and beyond, addressing two key questions: How do policies intended to regulate the usage of opioid medications impact the quantity of opioids dispensed? What is the impact of regulations on opioid drug usages on the incidence of fatalities resulting from drug overdoses?
+
+In addressing the first question, our analysis indicates that opioid usage regulations contribute to a notable decrease in the volume of opioids prescribed in certain states, exemplified by the case of Florida. Conversely, it is noteworthy that such regulations may not exert a similar impact on reducing the volume of opioids prescribed in other states, such as Washington.
+
+For the second research question, our analysis reveals that regulations on opioid drug usages are linked with a discernible reduction in the volume of opioids prescribed, as clearly seen in the case of Florida. However, the direct connection between these regulatory measures and a decrease in fatalities from drug overdoses is less straightforward. States like Texas and Washington, while also adopting opioid policies, demonstrate the need for a more nuanced understanding of how these regulations intersect with factors influencing overdose fatalities. This highlights the complexity of the opioid crisis and suggests that addressing it effectively requires a multifaceted strategy, encompassing not just usage controls but also broader public health initiatives.
+
+In conclusion, opioid policies are effective in overseeing opioid usages but less so in mitigating the risk of drug overdoses.
+
+## Methodology
+
+The study investigates the impact on usage trends and overdose deaths using two methodologies: *pre-post analysis* and *difference-in-difference* analysis. The pre-post analysis employs a comparison before and after the policy implementation to illustrate its effect on opioid usage rates and overdose deaths. In the graph, a noticeable change in trends of prescribed opioids and overdose deaths would indicate the policy's effectiveness, while no change in trends would suggest otherwise.
+
+It is crucial to acknowledge that factors beyond the policy may influence opioid usages and overdose deaths. A pre-post analysis alone might conflate the effects of localized interventions with broader state and national factors that influence opioid use. These factors include changing medical practices, Centers for Disease Control prescribing guidelines, and illicit fentanyl flows that impact all states in the United States.
+
+Difference-in-difference methods help mitigate these challenges by considering the differential changes in outcomes between the treatment and control groups over time. The DiD approach aims to isolate the causal effect of the treatment from potential confounding factors that affect both groups similarly. Specifically, conducting difference-in-difference comparisons with control states that exhibit similar trends in opioid shipments and overdose deaths before the policy implementation, and lack such policies during the same period, can help control for these backdrop influences on opioid trends.
+
+After plotting the trends of opioid shipments and overdose deaths across time for states and conducting research on whether there is a policy implemented, we selected control states for each treated state. If underlying opioid use dynamics were aligned between treatment and controls states in prior years, diverging trends post-intervention provide stronger evidence the policies themselves drove observed changes. For Washington, the control states are Ohio, Minnesota, and Maine. For Texas, the control states are Missouri, Minnesota, and Arkansas. For Florida, the control states are Kentucky, Tennessee, and Oregon. However, it is important to acknowledge that no method, including difference-in-difference, can completely eliminate all potential confounding factors.
+
+The research aims to assess the longitudinal effects of policies from 2007 to 2012 and beyond. While it may not encompass all forms of licit and illicit opioid use, this data offers crucial insights into the intended impacts of usage oversight policies. By meticulously examining the data, our goal is to offer clear insights into the intricate relationship between policy actions and public health outcomes. This, in turn, provides a robust foundation for informed policymaking in the battle against the opioid epidemic.
+
+\newpage
+
+## Data
+
+For opioid usage analysis, we rely on [DEA pain pill data obtained from the Washington Post](https://www.washingtonpost.com/national/2019/07/18/how-download-use-dea-pain-pills-database/?arc404=true), covering atracks the path of opioid pain pill, from manufacturer to pharmacy in the United States from 2006 to 2019. To examine opioid overdose deaths, we utilize data from [the US Vital Statistics records](https://www.dropbox.com/s/kad4dwebr88l3ud/US_VitalStatistics.zip?dl=0), providing a comprehensive summary of mortality for both drug and non-drug-related causes in every US county from 2003 to 2015. Additionally, we collect annual county level population data from [Centers for Disease Control and Prevention](https://wonder.cdc.gov/bridged-race-population.html) from 1990 to 2020. This inclusion enables us to calculate two key variables: the number of drugs prescribed per capita and the percentage of deaths attributed to drug-related causes within the population, addressing significant variations in population sizes among different counties.
+
+To overcome missing drug-related mortality data while retaining important county variation, a carefully validated imputation process was employed. State-level mortality rates were first calculated using only counties with complete data for both overdose deaths and usages---the analysis subset with reliable mortality measurement most comparable to missing counties. By leveraging this fully observed subset to determine plausible rate ranges, multiplication by population generated estimates grounded in empirical evidence, rather than assumptions alone.
+
+Moreover, bounding estimates at 9 deaths imposed an informed cap per the data properties. Combined, these procedures produce complete, county-specific overdose measures that credibly reflect reported state trends as well as known data limitations---enabling robust mortality analysis aligned with available knowledge on likely ranges. This controlled, evidence-based imputation paradigm allows for clear estimation within the constraints of significant data censoring while preventing uncontrolled extrapolation. The result is a county panel suitable for advanced difference-in-difference assessment of targeted policy impacts on mortality amid a complex opioid crisis.
+
+\newpage
+
+## Analysis
+
+### Question 1: How do policies intended to regulate the usage of opioid medications impact the quantity of opioids dispensed?
+
+#### Washington
+
+```{r,echo=FALSE, warning=FALSE,message=FALSE}
+library(png)
+library(grid)
+library(gridExtra)
+library(ggplot2)
+library(gplots)
+```
+
+```{r, echo= FALSE}
+img1 <- readPNG("PrePostOpioidsWashington.png")
+img2 <- readPNG("DiffOpioidsWashington.png")
+
+# Set up the grid layout
+grid.newpage()
+
+# Arrange and save the combined images to a Pdf file
+combined_image <- grid.arrange(
+  top = textGrob("Figure 1: Pre-post and Diff-in-diff analysis for Washington", gp=gpar(fontface="bold", fontsize=10)),
+  rasterGrob(img1, interpolate = TRUE),
+  rasterGrob(img2, interpolate = TRUE),
+  ncol = 2
+)
+
+ggsave("output_combined_Washington.pdf", combined_image, width = 10, height = 5)  # Adjust width and height as needed
+```
+
+*Figure 1:* *The two plots depict opioid usage trends before and after the implementation of the opioid policy in Washington in January 2011.*
+
+In the left plot, il̥lustrating the pre-post analysis, the trend of increasing opioid usages slows down as the line becomes flatter following the policy's enactment. Meanwhile, the right plot, displaying the difference-in-differences analysis, underscores a distinction between Washington and other control states (Ohio, Minnesota, and Maine), where no opioid policy was introduced during that period. While Washington exhibited a stable trend in opioid usages, the control states demonstrated a slightly decreasing trend.
+
+Based on the plot, our conclusion is that opioid regulation exerts a limited impact on opioid usages in Washington. In the left graph, where opioid usage demonstrates an upward trajectory before the policy, the increasing trend slows down following the policy implementation. However, the right graph reveals that while both the control states (Ohio, Minnesota, and Maine) and Washington experienced increases in opioid usages before the regulation, Washington exhibited a slight decline post-implementation, whereas the other control states showed a stronger decreasing trend after the policy.
+
+#### Florida
+
+```{r, echo= FALSE}
+img3 <- readPNG("PrePostOpioidFlorida.png")
+img4 <- readPNG("DiffOpioidFlorida.png")
+
+# Set up the grid layout
+grid.newpage()
+
+# Arrange and save the combined images to a png file
+combined_image <- grid.arrange(
+  top = textGrob("Figure 2: Pre-post and Diff-in-diff analysis for Florida", gp=gpar(fontface="bold", fontsize=10)),
+  rasterGrob(img3, interpolate = TRUE),
+  rasterGrob(img4, interpolate = TRUE),
+  ncol = 2
+)
+
+ggsave("output_combined_Florida.pdf", combined_image, width = 10, height = 5)
+```
+
+*Figure 2* *The two plots shows opioid usage trends before and after the implementation of opioid policy in Florida in February 2010*
+
+The left plot, illustrating the pre-post analysis, reveals a sharp decline in opioid usages following the policy's enactment. Meanwhile, the right plot, displaying the difference-in-differences analysis, highlights a contrast between Florida and other control states (Kentucky, Tennessee, and Oregon), where no opioid policy was introduced during that period. As Florida experienced a decrease in opioid usages, the control states exhibited an increasing trend.
+
+Upon analyzing the plot, our conclusion is that opioid regulation exerts a substantial impact on opioid usages in Florida. In the left graph, where opioid usage demonstrates an upward trajectory before the policy, a notable decrease is observed following the policy implementation. The right graph further underscores this impact, revealing that while both the control states (Kentucky, Tennessee, and Oregon) and Florida increases in opioid usages before the regulation, Florida experienced a rapid decline post-implementation, whereas the other control states continued to exhibit an upward trend after the policy.
+
+\newpage
+
+### Question 2: What is the impact of regulations on opioid drug usages on the incidence of fatalities resulting from drug overdoses?
+
+#### Washington
+
+```{r, echo= FALSE}
+# Now read the converted PNG files
+img1 <- readPNG("PrePostDeathWashington.png")
+img2 <- readPNG("DiffDeathWashington.png")
+
+# Set up the grid layout
+grid.newpage()
+
+# Arrange and save the combined images to a Pdf file
+combined_image <- grid.arrange(
+  top = textGrob("Figure 3: Pre-post and Diff-in-diff analysis for Washington", gp=gpar(fontface="bold", fontsize=10)),
+  rasterGrob(img1, interpolate = TRUE),
+  rasterGrob(img2, interpolate = TRUE),
+  ncol = 2
+)
+
+ggsave("output_combined_Washington.pdf", combined_image, width = 10, height = 5)  # Adjust width and height as needed
+```
+
+*Figure 3: This figure illustrates two key analyses of opioid usage trends in Washington, centered around the implementation of an opioid policy. The left plot offers a pre-post analysis of the situation, while the right plot provides a difference-in-differences analysis.*
+
+**Pre-Post Analysis (Left Plot)**: In the pre-policy period for Washington, a consistent upward trend in opioid-related deaths per capita is observed, suggesting an increasing problem up to the policy year of 2012. After the policy implementation, while the increase continues, it appears to do so at a slightly reduced pace, hinting at a modest impact of the regulations.
+
+**Difference-in-Differences Analysis (Right Plot)**: In the difference-in-difference analysis, comparing Washington with Ohio, Minnesota, and Maine, each state shows an increase in deaths before the policy. Post-policy, Washington's trend does not significantly diverge from the control states, indicating that the impact of the regulations on opioid fatalities may not be markedly different from the trends in these states without such policy changes.
+
+Overall, these trends suggest that while there may be some impact from the regulations, the measures might not be sufficient on their own to significantly curb the trend in opioid overdose fatalities. This underscores the need for a multifaceted approach to effectively tackle the opioid crisis.
+
+\newpage
+
+#### Florida
+
+```{r, echo= FALSE}
+# Now read the converted PNG files
+img1 <- readPNG("PrePostDeathFlorida.png")
+img2 <- readPNG("DiffDeathFlorida.png")
+
+# Set up the grid layout
+grid.newpage()
+
+
+# Arrange and save the combined images to a Pdf file
+combined_image <- grid.arrange(
+    top = textGrob("Figure 4: Pre-post and Diff-in-diff analysis for Florida", gp=gpar(fontface="bold", fontsize=10)),
+  rasterGrob(img1, interpolate = TRUE),
+  rasterGrob(img2, interpolate = TRUE),
+  ncol = 2
+)
+
+ggsave("output_combined_Florida.pdf", combined_image, width = 10, height = 5)  # Adjust width and height as needed
+```
+
+*Figure 4: This figure presents two analyses of opioid usage trends in Florida around the introduction of an opioid policy. The left plot shows the pre-post analysis, and the right plot shows the difference-in-differences analysis.*
+
+**Pre-Post Analysis (Left Plot)**: In the pre-policy period (before 2010) for Florida depicted in the pre-post analysis plot, there is a gradual upward trend in opioid-related death per capita. This suggests increasing fatalities up to the point of policy implementation. After the policy enactment in 2010, there is a pronounced downward trend, indicating a potential positive impact of the regulations in reducing deaths due to opioid overdoses.
+
+**Difference-in-Differences Analysis (Right Plot)**: In the difference-in-difference plot on the right, the trends for the control states of Kentucky, Tennessee, and Oregon also show an increase before the policy year. However, post-2010, while the control states continue on an upward or stable trend, Florida's trend line shows a steep decline, distinct from the control group's trajectory.
+
+Overall, this comparative analysis suggests that regulations may have played a significant role in curbing opioid overdose fatalities in Florida, as the trend change is more pronounced when contrasted with states that did not implement similar regulations.
+
+\newpage
+
+#### Texas
+
+```{r, echo= FALSE}
+
+# Now read the converted PNG files
+img1 <- readPNG("PrePostDeathTexas.png")
+img2 <- readPNG("DiffDeathTexas.png")
+
+# Set up the grid layout
+grid.newpage()
+
+# Arrange and save the combined images to a Pdf file
+combined_image <- grid.arrange(
+  top = textGrob("Figure 5: Pre-post and Diff-in-diff analysis for Texas", gp=gpar(fontface="bold", fontsize=10)),
+  rasterGrob(img1, interpolate = TRUE),
+  rasterGrob(img2, interpolate = TRUE),
+  ncol = 2
+)
+
+ggsave("output_combined_Texas.pdf", combined_image, width = 10, height = 5)
+```
+
+*Figure 5: This figure presents two distinct analyses of opioid usage trends in Texas surrounding the implementation of an opioid policy in 2007. The left plot showcases the pre-post analysis, while the right plot demonstrates the difference-in-differences analysis.*
+
+**Pre-Post Analysis (Left Plot)**: We see a slight increase in opioid-related deaths per capita leading up to the policy year of 2007 in pre-post analysis plot. This trend suggests a growing opioid crisis up to the implementation of the new regulations. After the policy is implemented, there is a clear downward trend, indicating that the regulations may have been effective in reducing the number of opioid-related deaths.
+
+**Difference-in-Differences Analysis (Right Plot)**: The plot contrasts Texas's opioid death rates with those of control states Missouri, Minnesota, and Arkansas. Before the policy year, the trends in all states were similar, showing a modest increase. Following the policy implementation in Texas, there's a stark contrast; Texas shows a decrease in opioid-related deaths, while the control states do not exhibit a similar decline.
+
+Overall, the regulations introduced in Texas in 2007 seem to correlate with a reduction in opioid-related fatalities, pointing towards the effectiveness of the policy. However, it's worth noting that after the initial drop, there might have been an uptick in deaths, possibly due to individuals turning to alternative substances. This suggests that while the policy had an immediate impact, its long-term effectiveness may be influenced by other factors in the complex landscape of substance use.
+
+## Conclusion
+
+In our analysis, we have determined that opioid regulation plays a crucial role in managing opioid usages but a lesser role in preventing drug overdoses. However, it is important to acknowledge certain limitations within the study, primarily stemming from the processing of data. Consequently, there is room for potential enhancements. One proposed improvement involves implementing a more rigorous approach to selecting control states in diff-in-diff analysis. This is imperative as some states may lack explicit opioid regulations but possess alternative regulations that exert a significant influence on opioid usage and overdose rates. Therefore, refining the methodology to ensure a more nuanced and comprehensive selection of control states will contribute to the accuracy and reliability of the study's findings.
