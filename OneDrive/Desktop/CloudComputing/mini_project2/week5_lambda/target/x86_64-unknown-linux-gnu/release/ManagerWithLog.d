@@ -1,0 +1,1 @@
+C:\Users\ayush\OneDrive\Desktop\CloudComputing\mini-project-6\week5_lambda\target\x86_64-unknown-linux-gnu\release\ManagerWithLog: C:\Users\ayush\OneDrive\Desktop\CloudComputing\mini-project-6\week5_lambda\src\main.rs

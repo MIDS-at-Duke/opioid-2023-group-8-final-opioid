@@ -1,0 +1,8 @@
+C:\Users\ayush\OneDrive\Desktop\CloudComputing\mini-project-6\week5_lambda\target\debug\deps\aws_smithy_http_tower-9d411e4c53d27e86.rmeta: C:\Users\ayush\.cargo\registry\src\index.crates.io-6f17d22bba15001f\aws-smithy-http-tower-0.51.0\src\lib.rs C:\Users\ayush\.cargo\registry\src\index.crates.io-6f17d22bba15001f\aws-smithy-http-tower-0.51.0\src\dispatch.rs C:\Users\ayush\.cargo\registry\src\index.crates.io-6f17d22bba15001f\aws-smithy-http-tower-0.51.0\src\map_request.rs C:\Users\ayush\.cargo\registry\src\index.crates.io-6f17d22bba15001f\aws-smithy-http-tower-0.51.0\src\parse_response.rs
+
+C:\Users\ayush\OneDrive\Desktop\CloudComputing\mini-project-6\week5_lambda\target\debug\deps\aws_smithy_http_tower-9d411e4c53d27e86.d: C:\Users\ayush\.cargo\registry\src\index.crates.io-6f17d22bba15001f\aws-smithy-http-tower-0.51.0\src\lib.rs C:\Users\ayush\.cargo\registry\src\index.crates.io-6f17d22bba15001f\aws-smithy-http-tower-0.51.0\src\dispatch.rs C:\Users\ayush\.cargo\registry\src\index.crates.io-6f17d22bba15001f\aws-smithy-http-tower-0.51.0\src\map_request.rs C:\Users\ayush\.cargo\registry\src\index.crates.io-6f17d22bba15001f\aws-smithy-http-tower-0.51.0\src\parse_response.rs
+
+C:\Users\ayush\.cargo\registry\src\index.crates.io-6f17d22bba15001f\aws-smithy-http-tower-0.51.0\src\lib.rs:
+C:\Users\ayush\.cargo\registry\src\index.crates.io-6f17d22bba15001f\aws-smithy-http-tower-0.51.0\src\dispatch.rs:
+C:\Users\ayush\.cargo\registry\src\index.crates.io-6f17d22bba15001f\aws-smithy-http-tower-0.51.0\src\map_request.rs:
+C:\Users\ayush\.cargo\registry\src\index.crates.io-6f17d22bba15001f\aws-smithy-http-tower-0.51.0\src\parse_response.rs:

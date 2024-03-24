@@ -1,0 +1,16 @@
+C:\Users\ayush\OneDrive\Desktop\CloudComputing\mini-project-6\week5_lambda\target\debug\deps\aws_types-4e12ba5f8510133c.rmeta: C:\Users\ayush\.cargo\registry\src\index.crates.io-6f17d22bba15001f\aws-types-1.1.8\src\lib.rs C:\Users\ayush\.cargo\registry\src\index.crates.io-6f17d22bba15001f\aws-types-1.1.8\src\app_name.rs C:\Users\ayush\.cargo\registry\src\index.crates.io-6f17d22bba15001f\aws-types-1.1.8\src\build_metadata.rs C:\Users\ayush\.cargo\registry\src\index.crates.io-6f17d22bba15001f\aws-types-1.1.8\src\endpoint_config.rs C:\Users\ayush\.cargo\registry\src\index.crates.io-6f17d22bba15001f\aws-types-1.1.8\src\os_shim_internal.rs C:\Users\ayush\.cargo\registry\src\index.crates.io-6f17d22bba15001f\aws-types-1.1.8\src\region.rs C:\Users\ayush\.cargo\registry\src\index.crates.io-6f17d22bba15001f\aws-types-1.1.8\src\request_id.rs C:\Users\ayush\.cargo\registry\src\index.crates.io-6f17d22bba15001f\aws-types-1.1.8\src\sdk_config.rs C:\Users\ayush\OneDrive\Desktop\CloudComputing\mini-project-6\week5_lambda\target\debug\build\aws-types-9b56e3a2fd7b5d86\out/build_env.rs
+
+C:\Users\ayush\OneDrive\Desktop\CloudComputing\mini-project-6\week5_lambda\target\debug\deps\aws_types-4e12ba5f8510133c.d: C:\Users\ayush\.cargo\registry\src\index.crates.io-6f17d22bba15001f\aws-types-1.1.8\src\lib.rs C:\Users\ayush\.cargo\registry\src\index.crates.io-6f17d22bba15001f\aws-types-1.1.8\src\app_name.rs C:\Users\ayush\.cargo\registry\src\index.crates.io-6f17d22bba15001f\aws-types-1.1.8\src\build_metadata.rs C:\Users\ayush\.cargo\registry\src\index.crates.io-6f17d22bba15001f\aws-types-1.1.8\src\endpoint_config.rs C:\Users\ayush\.cargo\registry\src\index.crates.io-6f17d22bba15001f\aws-types-1.1.8\src\os_shim_internal.rs C:\Users\ayush\.cargo\registry\src\index.crates.io-6f17d22bba15001f\aws-types-1.1.8\src\region.rs C:\Users\ayush\.cargo\registry\src\index.crates.io-6f17d22bba15001f\aws-types-1.1.8\src\request_id.rs C:\Users\ayush\.cargo\registry\src\index.crates.io-6f17d22bba15001f\aws-types-1.1.8\src\sdk_config.rs C:\Users\ayush\OneDrive\Desktop\CloudComputing\mini-project-6\week5_lambda\target\debug\build\aws-types-9b56e3a2fd7b5d86\out/build_env.rs
+
+C:\Users\ayush\.cargo\registry\src\index.crates.io-6f17d22bba15001f\aws-types-1.1.8\src\lib.rs:
+C:\Users\ayush\.cargo\registry\src\index.crates.io-6f17d22bba15001f\aws-types-1.1.8\src\app_name.rs:
+C:\Users\ayush\.cargo\registry\src\index.crates.io-6f17d22bba15001f\aws-types-1.1.8\src\build_metadata.rs:
+C:\Users\ayush\.cargo\registry\src\index.crates.io-6f17d22bba15001f\aws-types-1.1.8\src\endpoint_config.rs:
+C:\Users\ayush\.cargo\registry\src\index.crates.io-6f17d22bba15001f\aws-types-1.1.8\src\os_shim_internal.rs:
+C:\Users\ayush\.cargo\registry\src\index.crates.io-6f17d22bba15001f\aws-types-1.1.8\src\region.rs:
+C:\Users\ayush\.cargo\registry\src\index.crates.io-6f17d22bba15001f\aws-types-1.1.8\src\request_id.rs:
+C:\Users\ayush\.cargo\registry\src\index.crates.io-6f17d22bba15001f\aws-types-1.1.8\src\sdk_config.rs:
+C:\Users\ayush\OneDrive\Desktop\CloudComputing\mini-project-6\week5_lambda\target\debug\build\aws-types-9b56e3a2fd7b5d86\out/build_env.rs:
+
+# env-dep:CARGO_PKG_VERSION=1.1.8
+# env-dep:OUT_DIR=C:\\Users\\ayush\\OneDrive\\Desktop\\CloudComputing\\mini-project-6\\week5_lambda\\target\\debug\\build\\aws-types-9b56e3a2fd7b5d86\\out

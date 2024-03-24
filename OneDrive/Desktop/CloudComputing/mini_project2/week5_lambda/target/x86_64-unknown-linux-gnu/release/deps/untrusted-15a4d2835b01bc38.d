@@ -1,0 +1,10 @@
+C:\Users\ayush\OneDrive\Desktop\Cloud Computing\mini-project-5\week5_lambda\target\x86_64-unknown-linux-gnu\release\deps\untrusted-15a4d2835b01bc38.rmeta: C:\Users\ayush\.cargo\registry\src\index.crates.io-6f17d22bba15001f\untrusted-0.9.0\src\lib.rs C:\Users\ayush\.cargo\registry\src\index.crates.io-6f17d22bba15001f\untrusted-0.9.0\src\input.rs C:\Users\ayush\.cargo\registry\src\index.crates.io-6f17d22bba15001f\untrusted-0.9.0\src\no_panic.rs C:\Users\ayush\.cargo\registry\src\index.crates.io-6f17d22bba15001f\untrusted-0.9.0\src\reader.rs
+
+C:\Users\ayush\OneDrive\Desktop\Cloud Computing\mini-project-5\week5_lambda\target\x86_64-unknown-linux-gnu\release\deps\libuntrusted-15a4d2835b01bc38.rlib: C:\Users\ayush\.cargo\registry\src\index.crates.io-6f17d22bba15001f\untrusted-0.9.0\src\lib.rs C:\Users\ayush\.cargo\registry\src\index.crates.io-6f17d22bba15001f\untrusted-0.9.0\src\input.rs C:\Users\ayush\.cargo\registry\src\index.crates.io-6f17d22bba15001f\untrusted-0.9.0\src\no_panic.rs C:\Users\ayush\.cargo\registry\src\index.crates.io-6f17d22bba15001f\untrusted-0.9.0\src\reader.rs
+
+C:\Users\ayush\OneDrive\Desktop\Cloud Computing\mini-project-5\week5_lambda\target\x86_64-unknown-linux-gnu\release\deps\untrusted-15a4d2835b01bc38.d: C:\Users\ayush\.cargo\registry\src\index.crates.io-6f17d22bba15001f\untrusted-0.9.0\src\lib.rs C:\Users\ayush\.cargo\registry\src\index.crates.io-6f17d22bba15001f\untrusted-0.9.0\src\input.rs C:\Users\ayush\.cargo\registry\src\index.crates.io-6f17d22bba15001f\untrusted-0.9.0\src\no_panic.rs C:\Users\ayush\.cargo\registry\src\index.crates.io-6f17d22bba15001f\untrusted-0.9.0\src\reader.rs
+
+C:\Users\ayush\.cargo\registry\src\index.crates.io-6f17d22bba15001f\untrusted-0.9.0\src\lib.rs:
+C:\Users\ayush\.cargo\registry\src\index.crates.io-6f17d22bba15001f\untrusted-0.9.0\src\input.rs:
+C:\Users\ayush\.cargo\registry\src\index.crates.io-6f17d22bba15001f\untrusted-0.9.0\src\no_panic.rs:
+C:\Users\ayush\.cargo\registry\src\index.crates.io-6f17d22bba15001f\untrusted-0.9.0\src\reader.rs:

@@ -1,0 +1,12 @@
+C:\Users\ayush\OneDrive\Desktop\CloudComputing\mini-project-6\week5_lambda\target\debug\deps\uuid-455055ffd64e92a8.rmeta: C:\Users\ayush\.cargo\registry\src\index.crates.io-6f17d22bba15001f\uuid-1.8.0\src\lib.rs C:\Users\ayush\.cargo\registry\src\index.crates.io-6f17d22bba15001f\uuid-1.8.0\src\builder.rs C:\Users\ayush\.cargo\registry\src\index.crates.io-6f17d22bba15001f\uuid-1.8.0\src\error.rs C:\Users\ayush\.cargo\registry\src\index.crates.io-6f17d22bba15001f\uuid-1.8.0\src\parser.rs C:\Users\ayush\.cargo\registry\src\index.crates.io-6f17d22bba15001f\uuid-1.8.0\src\fmt.rs C:\Users\ayush\.cargo\registry\src\index.crates.io-6f17d22bba15001f\uuid-1.8.0\src\timestamp.rs C:\Users\ayush\.cargo\registry\src\index.crates.io-6f17d22bba15001f\uuid-1.8.0\src\external.rs C:\Users\ayush\.cargo\registry\src\index.crates.io-6f17d22bba15001f\uuid-1.8.0\src\macros.rs
+
+C:\Users\ayush\OneDrive\Desktop\CloudComputing\mini-project-6\week5_lambda\target\debug\deps\uuid-455055ffd64e92a8.d: C:\Users\ayush\.cargo\registry\src\index.crates.io-6f17d22bba15001f\uuid-1.8.0\src\lib.rs C:\Users\ayush\.cargo\registry\src\index.crates.io-6f17d22bba15001f\uuid-1.8.0\src\builder.rs C:\Users\ayush\.cargo\registry\src\index.crates.io-6f17d22bba15001f\uuid-1.8.0\src\error.rs C:\Users\ayush\.cargo\registry\src\index.crates.io-6f17d22bba15001f\uuid-1.8.0\src\parser.rs C:\Users\ayush\.cargo\registry\src\index.crates.io-6f17d22bba15001f\uuid-1.8.0\src\fmt.rs C:\Users\ayush\.cargo\registry\src\index.crates.io-6f17d22bba15001f\uuid-1.8.0\src\timestamp.rs C:\Users\ayush\.cargo\registry\src\index.crates.io-6f17d22bba15001f\uuid-1.8.0\src\external.rs C:\Users\ayush\.cargo\registry\src\index.crates.io-6f17d22bba15001f\uuid-1.8.0\src\macros.rs
+
+C:\Users\ayush\.cargo\registry\src\index.crates.io-6f17d22bba15001f\uuid-1.8.0\src\lib.rs:
+C:\Users\ayush\.cargo\registry\src\index.crates.io-6f17d22bba15001f\uuid-1.8.0\src\builder.rs:
+C:\Users\ayush\.cargo\registry\src\index.crates.io-6f17d22bba15001f\uuid-1.8.0\src\error.rs:
+C:\Users\ayush\.cargo\registry\src\index.crates.io-6f17d22bba15001f\uuid-1.8.0\src\parser.rs:
+C:\Users\ayush\.cargo\registry\src\index.crates.io-6f17d22bba15001f\uuid-1.8.0\src\fmt.rs:
+C:\Users\ayush\.cargo\registry\src\index.crates.io-6f17d22bba15001f\uuid-1.8.0\src\timestamp.rs:
+C:\Users\ayush\.cargo\registry\src\index.crates.io-6f17d22bba15001f\uuid-1.8.0\src\external.rs:
+C:\Users\ayush\.cargo\registry\src\index.crates.io-6f17d22bba15001f\uuid-1.8.0\src\macros.rs:

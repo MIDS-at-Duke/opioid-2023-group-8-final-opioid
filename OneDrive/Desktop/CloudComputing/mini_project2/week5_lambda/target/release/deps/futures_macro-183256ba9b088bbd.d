@@ -1,0 +1,9 @@
+C:\Users\ayush\OneDrive\Desktop\Cloud Computing\mini-project-5\week5_lambda\target\release\deps\futures_macro-183256ba9b088bbd.dll: C:\Users\ayush\.cargo\registry\src\index.crates.io-6f17d22bba15001f\futures-macro-0.3.30\src\lib.rs C:\Users\ayush\.cargo\registry\src\index.crates.io-6f17d22bba15001f\futures-macro-0.3.30\src\executor.rs C:\Users\ayush\.cargo\registry\src\index.crates.io-6f17d22bba15001f\futures-macro-0.3.30\src\join.rs C:\Users\ayush\.cargo\registry\src\index.crates.io-6f17d22bba15001f\futures-macro-0.3.30\src\select.rs C:\Users\ayush\.cargo\registry\src\index.crates.io-6f17d22bba15001f\futures-macro-0.3.30\src\stream_select.rs
+
+C:\Users\ayush\OneDrive\Desktop\Cloud Computing\mini-project-5\week5_lambda\target\release\deps\futures_macro-183256ba9b088bbd.d: C:\Users\ayush\.cargo\registry\src\index.crates.io-6f17d22bba15001f\futures-macro-0.3.30\src\lib.rs C:\Users\ayush\.cargo\registry\src\index.crates.io-6f17d22bba15001f\futures-macro-0.3.30\src\executor.rs C:\Users\ayush\.cargo\registry\src\index.crates.io-6f17d22bba15001f\futures-macro-0.3.30\src\join.rs C:\Users\ayush\.cargo\registry\src\index.crates.io-6f17d22bba15001f\futures-macro-0.3.30\src\select.rs C:\Users\ayush\.cargo\registry\src\index.crates.io-6f17d22bba15001f\futures-macro-0.3.30\src\stream_select.rs
+
+C:\Users\ayush\.cargo\registry\src\index.crates.io-6f17d22bba15001f\futures-macro-0.3.30\src\lib.rs:
+C:\Users\ayush\.cargo\registry\src\index.crates.io-6f17d22bba15001f\futures-macro-0.3.30\src\executor.rs:
+C:\Users\ayush\.cargo\registry\src\index.crates.io-6f17d22bba15001f\futures-macro-0.3.30\src\join.rs:
+C:\Users\ayush\.cargo\registry\src\index.crates.io-6f17d22bba15001f\futures-macro-0.3.30\src\select.rs:
+C:\Users\ayush\.cargo\registry\src\index.crates.io-6f17d22bba15001f\futures-macro-0.3.30\src\stream_select.rs:

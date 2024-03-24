@@ -1,0 +1,191 @@
+cargo:rerun-if-env-changed=RING_PREGENERATE_ASM
+cargo:rustc-env=RING_CORE_PREFIX=ring_core_0_17_8_
+OPT_LEVEL = Some("3")
+TARGET = Some("x86_64-unknown-linux-gnu")
+HOST = Some("x86_64-pc-windows-msvc")
+cargo:rerun-if-env-changed=CC_x86_64-unknown-linux-gnu
+CC_x86_64-unknown-linux-gnu = None
+cargo:rerun-if-env-changed=CC_x86_64_unknown_linux_gnu
+CC_x86_64_unknown_linux_gnu = Some("C:/Users/ayush/AppData/Local/cargo-zigbuild/0.17.5/zigcc-x86_64-unknown-linux-gnu.bat")
+cargo:rerun-if-env-changed=CC_ENABLE_DEBUG_OUTPUT
+cargo:rerun-if-env-changed=CRATE_CC_NO_DEFAULTS
+CRATE_CC_NO_DEFAULTS = None
+DEBUG = Some("false")
+cargo:rerun-if-env-changed=CFLAGS_x86_64-unknown-linux-gnu
+CFLAGS_x86_64-unknown-linux-gnu = None
+cargo:rerun-if-env-changed=CFLAGS_x86_64_unknown_linux_gnu
+CFLAGS_x86_64_unknown_linux_gnu = None
+cargo:rerun-if-env-changed=TARGET_CFLAGS
+TARGET_CFLAGS = None
+cargo:rerun-if-env-changed=CFLAGS
+CFLAGS = None
+
+C:\Users\ayush\.cargo\registry\src\index.crates.io-6f17d22bba15001f\ring-0.17.8>C:/Users/ayush/scoop/apps/cargo-lambda/current/cargo-lambda.exe zig cc -- -target x86_64-linux-gnu  -g -O3 -ffunction-sections -fdata-sections -fPIC -m64 "--target=x86_64-unknown-linux-gnu" -I include -I "C:\Users\ayush\OneDrive\Desktop\Cloud Computing\mini-project-5\week5_lambda\target\x86_64-unknown-linux-gnu\release\build\ring-987cc8abfac606f6\out" -Wall -Wextra "-fvisibility=hidden" "-std=c1x" -Wall -Wbad-function-cast -Wcast-align -Wcast-qual -Wconversion -Wmissing-field-initializers -Wmissing-include-dirs -Wnested-externs -Wredundant-decls -Wshadow -Wsign-compare -Wsign-conversion -Wstrict-prototypes -Wundef -Wuninitialized -g3 -DNDEBUG -o "C:\Users\ayush\OneDrive\Desktop\Cloud Computing\mini-project-5\week5_lambda\target\x86_64-unknown-linux-gnu\release\build\ring-987cc8abfac606f6\out\fad98b632b8ce3cc-curve25519.o" -c crypto/curve25519/curve25519.c 
+
+C:\Users\ayush\.cargo\registry\src\index.crates.io-6f17d22bba15001f\ring-0.17.8>C:/Users/ayush/scoop/apps/cargo-lambda/current/cargo-lambda.exe zig cc -- -target x86_64-linux-gnu  -g -O3 -ffunction-sections -fdata-sections -fPIC -m64 "--target=x86_64-unknown-linux-gnu" -I include -I "C:\Users\ayush\OneDrive\Desktop\Cloud Computing\mini-project-5\week5_lambda\target\x86_64-unknown-linux-gnu\release\build\ring-987cc8abfac606f6\out" -Wall -Wextra "-fvisibility=hidden" "-std=c1x" -Wall -Wbad-function-cast -Wcast-align -Wcast-qual -Wconversion -Wmissing-field-initializers -Wmissing-include-dirs -Wnested-externs -Wredundant-decls -Wshadow -Wsign-compare -Wsign-conversion -Wstrict-prototypes -Wundef -Wuninitialized -g3 -DNDEBUG -o "C:\Users\ayush\OneDrive\Desktop\Cloud Computing\mini-project-5\week5_lambda\target\x86_64-unknown-linux-gnu\release\build\ring-987cc8abfac606f6\out\ca4b6ef5433f5aeb-aes_nohw.o" -c crypto/fipsmodule/aes/aes_nohw.c 
+
+C:\Users\ayush\.cargo\registry\src\index.crates.io-6f17d22bba15001f\ring-0.17.8>C:/Users/ayush/scoop/apps/cargo-lambda/current/cargo-lambda.exe zig cc -- -target x86_64-linux-gnu  -g -O3 -ffunction-sections -fdata-sections -fPIC -m64 "--target=x86_64-unknown-linux-gnu" -I include -I "C:\Users\ayush\OneDrive\Desktop\Cloud Computing\mini-project-5\week5_lambda\target\x86_64-unknown-linux-gnu\release\build\ring-987cc8abfac606f6\out" -Wall -Wextra "-fvisibility=hidden" "-std=c1x" -Wall -Wbad-function-cast -Wcast-align -Wcast-qual -Wconversion -Wmissing-field-initializers -Wmissing-include-dirs -Wnested-externs -Wredundant-decls -Wshadow -Wsign-compare -Wsign-conversion -Wstrict-prototypes -Wundef -Wuninitialized -g3 -DNDEBUG -o "C:\Users\ayush\OneDrive\Desktop\Cloud Computing\mini-project-5\week5_lambda\target\x86_64-unknown-linux-gnu\release\build\ring-987cc8abfac606f6\out\ca8bd8684bb569fa-montgomery.o" -c crypto/fipsmodule/bn/montgomery.c 
+
+C:\Users\ayush\.cargo\registry\src\index.crates.io-6f17d22bba15001f\ring-0.17.8>C:/Users/ayush/scoop/apps/cargo-lambda/current/cargo-lambda.exe zig cc -- -target x86_64-linux-gnu  -g -O3 -ffunction-sections -fdata-sections -fPIC -m64 "--target=x86_64-unknown-linux-gnu" -I include -I "C:\Users\ayush\OneDrive\Desktop\Cloud Computing\mini-project-5\week5_lambda\target\x86_64-unknown-linux-gnu\release\build\ring-987cc8abfac606f6\out" -Wall -Wextra "-fvisibility=hidden" "-std=c1x" -Wall -Wbad-function-cast -Wcast-align -Wcast-qual -Wconversion -Wmissing-field-initializers -Wmissing-include-dirs -Wnested-externs -Wredundant-decls -Wshadow -Wsign-compare -Wsign-conversion -Wstrict-prototypes -Wundef -Wuninitialized -g3 -DNDEBUG -o "C:\Users\ayush\OneDrive\Desktop\Cloud Computing\mini-project-5\week5_lambda\target\x86_64-unknown-linux-gnu\release\build\ring-987cc8abfac606f6\out\ca8bd8684bb569fa-montgomery_inv.o" -c crypto/fipsmodule/bn/montgomery_inv.c 
+
+C:\Users\ayush\.cargo\registry\src\index.crates.io-6f17d22bba15001f\ring-0.17.8>C:/Users/ayush/scoop/apps/cargo-lambda/current/cargo-lambda.exe zig cc -- -target x86_64-linux-gnu  -g -O3 -ffunction-sections -fdata-sections -fPIC -m64 "--target=x86_64-unknown-linux-gnu" -I include -I "C:\Users\ayush\OneDrive\Desktop\Cloud Computing\mini-project-5\week5_lambda\target\x86_64-unknown-linux-gnu\release\build\ring-987cc8abfac606f6\out" -Wall -Wextra "-fvisibility=hidden" "-std=c1x" -Wall -Wbad-function-cast -Wcast-align -Wcast-qual -Wconversion -Wmissing-field-initializers -Wmissing-include-dirs -Wnested-externs -Wredundant-decls -Wshadow -Wsign-compare -Wsign-conversion -Wstrict-prototypes -Wundef -Wuninitialized -g3 -DNDEBUG -o "C:\Users\ayush\OneDrive\Desktop\Cloud Computing\mini-project-5\week5_lambda\target\x86_64-unknown-linux-gnu\release\build\ring-987cc8abfac606f6\out\a9af75d892b04b75-ecp_nistz.o" -c crypto/fipsmodule/ec/ecp_nistz.c 
+
+C:\Users\ayush\.cargo\registry\src\index.crates.io-6f17d22bba15001f\ring-0.17.8>C:/Users/ayush/scoop/apps/cargo-lambda/current/cargo-lambda.exe zig cc -- -target x86_64-linux-gnu  -g -O3 -ffunction-sections -fdata-sections -fPIC -m64 "--target=x86_64-unknown-linux-gnu" -I include -I "C:\Users\ayush\OneDrive\Desktop\Cloud Computing\mini-project-5\week5_lambda\target\x86_64-unknown-linux-gnu\release\build\ring-987cc8abfac606f6\out" -Wall -Wextra "-fvisibility=hidden" "-std=c1x" -Wall -Wbad-function-cast -Wcast-align -Wcast-qual -Wconversion -Wmissing-field-initializers -Wmissing-include-dirs -Wnested-externs -Wredundant-decls -Wshadow -Wsign-compare -Wsign-conversion -Wstrict-prototypes -Wundef -Wuninitialized -g3 -DNDEBUG -o "C:\Users\ayush\OneDrive\Desktop\Cloud Computing\mini-project-5\week5_lambda\target\x86_64-unknown-linux-gnu\release\build\ring-987cc8abfac606f6\out\a9af75d892b04b75-gfp_p256.o" -c crypto/fipsmodule/ec/gfp_p256.c 
+
+C:\Users\ayush\.cargo\registry\src\index.crates.io-6f17d22bba15001f\ring-0.17.8>C:/Users/ayush/scoop/apps/cargo-lambda/current/cargo-lambda.exe zig cc -- -target x86_64-linux-gnu  -g -O3 -ffunction-sections -fdata-sections -fPIC -m64 "--target=x86_64-unknown-linux-gnu" -I include -I "C:\Users\ayush\OneDrive\Desktop\Cloud Computing\mini-project-5\week5_lambda\target\x86_64-unknown-linux-gnu\release\build\ring-987cc8abfac606f6\out" -Wall -Wextra "-fvisibility=hidden" "-std=c1x" -Wall -Wbad-function-cast -Wcast-align -Wcast-qual -Wconversion -Wmissing-field-initializers -Wmissing-include-dirs -Wnested-externs -Wredundant-decls -Wshadow -Wsign-compare -Wsign-conversion -Wstrict-prototypes -Wundef -Wuninitialized -g3 -DNDEBUG -o "C:\Users\ayush\OneDrive\Desktop\Cloud Computing\mini-project-5\week5_lambda\target\x86_64-unknown-linux-gnu\release\build\ring-987cc8abfac606f6\out\a9af75d892b04b75-gfp_p384.o" -c crypto/fipsmodule/ec/gfp_p384.c 
+
+C:\Users\ayush\.cargo\registry\src\index.crates.io-6f17d22bba15001f\ring-0.17.8>C:/Users/ayush/scoop/apps/cargo-lambda/current/cargo-lambda.exe zig cc -- -target x86_64-linux-gnu  -g -O3 -ffunction-sections -fdata-sections -fPIC -m64 "--target=x86_64-unknown-linux-gnu" -I include -I "C:\Users\ayush\OneDrive\Desktop\Cloud Computing\mini-project-5\week5_lambda\target\x86_64-unknown-linux-gnu\release\build\ring-987cc8abfac606f6\out" -Wall -Wextra "-fvisibility=hidden" "-std=c1x" -Wall -Wbad-function-cast -Wcast-align -Wcast-qual -Wconversion -Wmissing-field-initializers -Wmissing-include-dirs -Wnested-externs -Wredundant-decls -Wshadow -Wsign-compare -Wsign-conversion -Wstrict-prototypes -Wundef -Wuninitialized -g3 -DNDEBUG -o "C:\Users\ayush\OneDrive\Desktop\Cloud Computing\mini-project-5\week5_lambda\target\x86_64-unknown-linux-gnu\release\build\ring-987cc8abfac606f6\out\a9af75d892b04b75-p256.o" -c crypto/fipsmodule/ec/p256.c 
+
+C:\Users\ayush\.cargo\registry\src\index.crates.io-6f17d22bba15001f\ring-0.17.8>C:/Users/ayush/scoop/apps/cargo-lambda/current/cargo-lambda.exe zig cc -- -target x86_64-linux-gnu  -g -O3 -ffunction-sections -fdata-sections -fPIC -m64 "--target=x86_64-unknown-linux-gnu" -I include -I "C:\Users\ayush\OneDrive\Desktop\Cloud Computing\mini-project-5\week5_lambda\target\x86_64-unknown-linux-gnu\release\build\ring-987cc8abfac606f6\out" -Wall -Wextra "-fvisibility=hidden" "-std=c1x" -Wall -Wbad-function-cast -Wcast-align -Wcast-qual -Wconversion -Wmissing-field-initializers -Wmissing-include-dirs -Wnested-externs -Wredundant-decls -Wshadow -Wsign-compare -Wsign-conversion -Wstrict-prototypes -Wundef -Wuninitialized -g3 -DNDEBUG -o "C:\Users\ayush\OneDrive\Desktop\Cloud Computing\mini-project-5\week5_lambda\target\x86_64-unknown-linux-gnu\release\build\ring-987cc8abfac606f6\out\a1949f2101df4b9c-limbs.o" -c crypto/limbs/limbs.c 
+
+C:\Users\ayush\.cargo\registry\src\index.crates.io-6f17d22bba15001f\ring-0.17.8>C:/Users/ayush/scoop/apps/cargo-lambda/current/cargo-lambda.exe zig cc -- -target x86_64-linux-gnu  -g -O3 -ffunction-sections -fdata-sections -fPIC -m64 "--target=x86_64-unknown-linux-gnu" -I include -I "C:\Users\ayush\OneDrive\Desktop\Cloud Computing\mini-project-5\week5_lambda\target\x86_64-unknown-linux-gnu\release\build\ring-987cc8abfac606f6\out" -Wall -Wextra "-fvisibility=hidden" "-std=c1x" -Wall -Wbad-function-cast -Wcast-align -Wcast-qual -Wconversion -Wmissing-field-initializers -Wmissing-include-dirs -Wnested-externs -Wredundant-decls -Wshadow -Wsign-compare -Wsign-conversion -Wstrict-prototypes -Wundef -Wuninitialized -g3 -DNDEBUG -o "C:\Users\ayush\OneDrive\Desktop\Cloud Computing\mini-project-5\week5_lambda\target\x86_64-unknown-linux-gnu\release\build\ring-987cc8abfac606f6\out\7effb53edfc7fa2d-mem.o" -c crypto/mem.c 
+
+C:\Users\ayush\.cargo\registry\src\index.crates.io-6f17d22bba15001f\ring-0.17.8>C:/Users/ayush/scoop/apps/cargo-lambda/current/cargo-lambda.exe zig cc -- -target x86_64-linux-gnu  -g -O3 -ffunction-sections -fdata-sections -fPIC -m64 "--target=x86_64-unknown-linux-gnu" -I include -I "C:\Users\ayush\OneDrive\Desktop\Cloud Computing\mini-project-5\week5_lambda\target\x86_64-unknown-linux-gnu\release\build\ring-987cc8abfac606f6\out" -Wall -Wextra "-fvisibility=hidden" "-std=c1x" -Wall -Wbad-function-cast -Wcast-align -Wcast-qual -Wconversion -Wmissing-field-initializers -Wmissing-include-dirs -Wnested-externs -Wredundant-decls -Wshadow -Wsign-compare -Wsign-conversion -Wstrict-prototypes -Wundef -Wuninitialized -g3 -DNDEBUG -o "C:\Users\ayush\OneDrive\Desktop\Cloud Computing\mini-project-5\week5_lambda\target\x86_64-unknown-linux-gnu\release\build\ring-987cc8abfac606f6\out\bec76f70393ddef1-poly1305.o" -c crypto/poly1305/poly1305.c 
+
+C:\Users\ayush\.cargo\registry\src\index.crates.io-6f17d22bba15001f\ring-0.17.8>C:/Users/ayush/scoop/apps/cargo-lambda/current/cargo-lambda.exe zig cc -- -target x86_64-linux-gnu  -g -O3 -ffunction-sections -fdata-sections -fPIC -m64 "--target=x86_64-unknown-linux-gnu" -I include -I "C:\Users\ayush\OneDrive\Desktop\Cloud Computing\mini-project-5\week5_lambda\target\x86_64-unknown-linux-gnu\release\build\ring-987cc8abfac606f6\out" -Wall -Wextra "-fvisibility=hidden" "-std=c1x" -Wall -Wbad-function-cast -Wcast-align -Wcast-qual -Wconversion -Wmissing-field-initializers -Wmissing-include-dirs -Wnested-externs -Wredundant-decls -Wshadow -Wsign-compare -Wsign-conversion -Wstrict-prototypes -Wundef -Wuninitialized -g3 -DNDEBUG -o "C:\Users\ayush\OneDrive\Desktop\Cloud Computing\mini-project-5\week5_lambda\target\x86_64-unknown-linux-gnu\release\build\ring-987cc8abfac606f6\out\7effb53edfc7fa2d-crypto.o" -c crypto/crypto.c 
+
+C:\Users\ayush\.cargo\registry\src\index.crates.io-6f17d22bba15001f\ring-0.17.8>C:/Users/ayush/scoop/apps/cargo-lambda/current/cargo-lambda.exe zig cc -- -target x86_64-linux-gnu  -g -O3 -ffunction-sections -fdata-sections -fPIC -m64 "--target=x86_64-unknown-linux-gnu" -I include -I "C:\Users\ayush\OneDrive\Desktop\Cloud Computing\mini-project-5\week5_lambda\target\x86_64-unknown-linux-gnu\release\build\ring-987cc8abfac606f6\out" -Wall -Wextra "-fvisibility=hidden" "-std=c1x" -Wall -Wbad-function-cast -Wcast-align -Wcast-qual -Wconversion -Wmissing-field-initializers -Wmissing-include-dirs -Wnested-externs -Wredundant-decls -Wshadow -Wsign-compare -Wsign-conversion -Wstrict-prototypes -Wundef -Wuninitialized -g3 -DNDEBUG -o "C:\Users\ayush\OneDrive\Desktop\Cloud Computing\mini-project-5\week5_lambda\target\x86_64-unknown-linux-gnu\release\build\ring-987cc8abfac606f6\out\7effb53edfc7fa2d-cpu_intel.o" -c crypto/cpu_intel.c 
+
+C:\Users\ayush\.cargo\registry\src\index.crates.io-6f17d22bba15001f\ring-0.17.8>C:/Users/ayush/scoop/apps/cargo-lambda/current/cargo-lambda.exe zig cc -- -target x86_64-linux-gnu  -g -O3 -ffunction-sections -fdata-sections -fPIC -m64 "--target=x86_64-unknown-linux-gnu" -I include -I "C:\Users\ayush\OneDrive\Desktop\Cloud Computing\mini-project-5\week5_lambda\target\x86_64-unknown-linux-gnu\release\build\ring-987cc8abfac606f6\out" -Wall -Wextra "-fvisibility=hidden" "-std=c1x" -Wall -Wbad-function-cast -Wcast-align -Wcast-qual -Wconversion -Wmissing-field-initializers -Wmissing-include-dirs -Wnested-externs -Wredundant-decls -Wshadow -Wsign-compare -Wsign-conversion -Wstrict-prototypes -Wundef -Wuninitialized -g3 -DNDEBUG -o "C:\Users\ayush\OneDrive\Desktop\Cloud Computing\mini-project-5\week5_lambda\target\x86_64-unknown-linux-gnu\release\build\ring-987cc8abfac606f6\out\fad98b632b8ce3cc-curve25519_64_adx.o" -c crypto/curve25519/curve25519_64_adx.c 
+
+C:\Users\ayush\.cargo\registry\src\index.crates.io-6f17d22bba15001f\ring-0.17.8>C:/Users/ayush/scoop/apps/cargo-lambda/current/cargo-lambda.exe zig cc -- -target x86_64-linux-gnu  -g -O3 -ffunction-sections -fdata-sections -fPIC -m64 "--target=x86_64-unknown-linux-gnu" -I include -I "C:\Users\ayush\OneDrive\Desktop\Cloud Computing\mini-project-5\week5_lambda\target\x86_64-unknown-linux-gnu\release\build\ring-987cc8abfac606f6\out" -Wall -Wextra "-fvisibility=hidden" "-std=c1x" -Wall -Wbad-function-cast -Wcast-align -Wcast-qual -Wconversion -Wmissing-field-initializers -Wmissing-include-dirs -Wnested-externs -Wredundant-decls -Wshadow -Wsign-compare -Wsign-conversion -Wstrict-prototypes -Wundef -Wuninitialized -g3 -DNDEBUG -o "C:\Users\ayush\OneDrive\Desktop\Cloud Computing\mini-project-5\week5_lambda\target\x86_64-unknown-linux-gnu\release\build\ring-987cc8abfac606f6\out\bec76f70393ddef1-poly1305_vec.o" -c crypto/poly1305/poly1305_vec.c 
+
+C:\Users\ayush\.cargo\registry\src\index.crates.io-6f17d22bba15001f\ring-0.17.8>C:/Users/ayush/scoop/apps/cargo-lambda/current/cargo-lambda.exe zig cc -- -target x86_64-linux-gnu  -g -O3 -ffunction-sections -fdata-sections -fPIC -m64 "--target=x86_64-unknown-linux-gnu" -I include -I "C:\Users\ayush\OneDrive\Desktop\Cloud Computing\mini-project-5\week5_lambda\target\x86_64-unknown-linux-gnu\release\build\ring-987cc8abfac606f6\out" -Wall -Wextra "-fvisibility=hidden" "-std=c1x" -Wall -Wbad-function-cast -Wcast-align -Wcast-qual -Wconversion -Wmissing-field-initializers -Wmissing-include-dirs -Wnested-externs -Wredundant-decls -Wshadow -Wsign-compare -Wsign-conversion -Wstrict-prototypes -Wundef -Wuninitialized -g3 -DNDEBUG -o "C:\Users\ayush\OneDrive\Desktop\Cloud Computing\mini-project-5\week5_lambda\target\x86_64-unknown-linux-gnu\release\build\ring-987cc8abfac606f6\out\c33e1852c646f991-fiat_curve25519_adx_mul.o" -c third_party/fiat/asm/fiat_curve25519_adx_mul.S 
+
+C:\Users\ayush\.cargo\registry\src\index.crates.io-6f17d22bba15001f\ring-0.17.8>C:/Users/ayush/scoop/apps/cargo-lambda/current/cargo-lambda.exe zig cc -- -target x86_64-linux-gnu  -g -O3 -ffunction-sections -fdata-sections -fPIC -m64 "--target=x86_64-unknown-linux-gnu" -I include -I "C:\Users\ayush\OneDrive\Desktop\Cloud Computing\mini-project-5\week5_lambda\target\x86_64-unknown-linux-gnu\release\build\ring-987cc8abfac606f6\out" -Wall -Wextra "-fvisibility=hidden" "-std=c1x" -Wall -Wbad-function-cast -Wcast-align -Wcast-qual -Wconversion -Wmissing-field-initializers -Wmissing-include-dirs -Wnested-externs -Wredundant-decls -Wshadow -Wsign-compare -Wsign-conversion -Wstrict-prototypes -Wundef -Wuninitialized -g3 -DNDEBUG -o "C:\Users\ayush\OneDrive\Desktop\Cloud Computing\mini-project-5\week5_lambda\target\x86_64-unknown-linux-gnu\release\build\ring-987cc8abfac606f6\out\c33e1852c646f991-fiat_curve25519_adx_square.o" -c third_party/fiat/asm/fiat_curve25519_adx_square.S 
+
+C:\Users\ayush\.cargo\registry\src\index.crates.io-6f17d22bba15001f\ring-0.17.8>C:/Users/ayush/scoop/apps/cargo-lambda/current/cargo-lambda.exe zig cc -- -target x86_64-linux-gnu  -g -O3 -ffunction-sections -fdata-sections -fPIC -m64 "--target=x86_64-unknown-linux-gnu" -I include -I "C:\Users\ayush\OneDrive\Desktop\Cloud Computing\mini-project-5\week5_lambda\target\x86_64-unknown-linux-gnu\release\build\ring-987cc8abfac606f6\out" -Wall -Wextra "-fvisibility=hidden" "-std=c1x" -Wall -Wbad-function-cast -Wcast-align -Wcast-qual -Wconversion -Wmissing-field-initializers -Wmissing-include-dirs -Wnested-externs -Wredundant-decls -Wshadow -Wsign-compare -Wsign-conversion -Wstrict-prototypes -Wundef -Wuninitialized -g3 -DNDEBUG -o "C:\Users\ayush\OneDrive\Desktop\Cloud Computing\mini-project-5\week5_lambda\target\x86_64-unknown-linux-gnu\release\build\ring-987cc8abfac606f6\out\a9af75d892b04b75-p256-nistz.o" -c crypto/fipsmodule/ec/p256-nistz.c 
+
+C:\Users\ayush\.cargo\registry\src\index.crates.io-6f17d22bba15001f\ring-0.17.8>C:/Users/ayush/scoop/apps/cargo-lambda/current/cargo-lambda.exe zig cc -- -target x86_64-linux-gnu  -g -O3 -ffunction-sections -fdata-sections -fPIC -m64 "--target=x86_64-unknown-linux-gnu" -I include -I "C:\Users\ayush\OneDrive\Desktop\Cloud Computing\mini-project-5\week5_lambda\target\x86_64-unknown-linux-gnu\release\build\ring-987cc8abfac606f6\out" -Wall -Wextra "-fvisibility=hidden" "-std=c1x" -Wall -Wbad-function-cast -Wcast-align -Wcast-qual -Wconversion -Wmissing-field-initializers -Wmissing-include-dirs -Wnested-externs -Wredundant-decls -Wshadow -Wsign-compare -Wsign-conversion -Wstrict-prototypes -Wundef -Wuninitialized -g3 -DNDEBUG -o "C:\Users\ayush\OneDrive\Desktop\Cloud Computing\mini-project-5\week5_lambda\target\x86_64-unknown-linux-gnu\release\build\ring-987cc8abfac606f6\out\cfc10c6faf03daaf-chacha-x86_64-elf.o" -c C:\Users\ayush\.cargo\registry\src\index.crates.io-6f17d22bba15001f\ring-0.17.8\pregenerated\chacha-x86_64-elf.S 
+
+C:\Users\ayush\.cargo\registry\src\index.crates.io-6f17d22bba15001f\ring-0.17.8>C:/Users/ayush/scoop/apps/cargo-lambda/current/cargo-lambda.exe zig cc -- -target x86_64-linux-gnu  -g -O3 -ffunction-sections -fdata-sections -fPIC -m64 "--target=x86_64-unknown-linux-gnu" -I include -I "C:\Users\ayush\OneDrive\Desktop\Cloud Computing\mini-project-5\week5_lambda\target\x86_64-unknown-linux-gnu\release\build\ring-987cc8abfac606f6\out" -Wall -Wextra "-fvisibility=hidden" "-std=c1x" -Wall -Wbad-function-cast -Wcast-align -Wcast-qual -Wconversion -Wmissing-field-initializers -Wmissing-include-dirs -Wnested-externs -Wredundant-decls -Wshadow -Wsign-compare -Wsign-conversion -Wstrict-prototypes -Wundef -Wuninitialized -g3 -DNDEBUG -o "C:\Users\ayush\OneDrive\Desktop\Cloud Computing\mini-project-5\week5_lambda\target\x86_64-unknown-linux-gnu\release\build\ring-987cc8abfac606f6\out\cfc10c6faf03daaf-aesni-x86_64-elf.o" -c C:\Users\ayush\.cargo\registry\src\index.crates.io-6f17d22bba15001f\ring-0.17.8\pregenerated\aesni-x86_64-elf.S 
+
+C:\Users\ayush\.cargo\registry\src\index.crates.io-6f17d22bba15001f\ring-0.17.8>C:/Users/ayush/scoop/apps/cargo-lambda/current/cargo-lambda.exe zig cc -- -target x86_64-linux-gnu  -g -O3 -ffunction-sections -fdata-sections -fPIC -m64 "--target=x86_64-unknown-linux-gnu" -I include -I "C:\Users\ayush\OneDrive\Desktop\Cloud Computing\mini-project-5\week5_lambda\target\x86_64-unknown-linux-gnu\release\build\ring-987cc8abfac606f6\out" -Wall -Wextra "-fvisibility=hidden" "-std=c1x" -Wall -Wbad-function-cast -Wcast-align -Wcast-qual -Wconversion -Wmissing-field-initializers -Wmissing-include-dirs -Wnested-externs -Wredundant-decls -Wshadow -Wsign-compare -Wsign-conversion -Wstrict-prototypes -Wundef -Wuninitialized -g3 -DNDEBUG -o "C:\Users\ayush\OneDrive\Desktop\Cloud Computing\mini-project-5\week5_lambda\target\x86_64-unknown-linux-gnu\release\build\ring-987cc8abfac606f6\out\cfc10c6faf03daaf-vpaes-x86_64-elf.o" -c C:\Users\ayush\.cargo\registry\src\index.crates.io-6f17d22bba15001f\ring-0.17.8\pregenerated\vpaes-x86_64-elf.S 
+
+C:\Users\ayush\.cargo\registry\src\index.crates.io-6f17d22bba15001f\ring-0.17.8>C:/Users/ayush/scoop/apps/cargo-lambda/current/cargo-lambda.exe zig cc -- -target x86_64-linux-gnu  -g -O3 -ffunction-sections -fdata-sections -fPIC -m64 "--target=x86_64-unknown-linux-gnu" -I include -I "C:\Users\ayush\OneDrive\Desktop\Cloud Computing\mini-project-5\week5_lambda\target\x86_64-unknown-linux-gnu\release\build\ring-987cc8abfac606f6\out" -Wall -Wextra "-fvisibility=hidden" "-std=c1x" -Wall -Wbad-function-cast -Wcast-align -Wcast-qual -Wconversion -Wmissing-field-initializers -Wmissing-include-dirs -Wnested-externs -Wredundant-decls -Wshadow -Wsign-compare -Wsign-conversion -Wstrict-prototypes -Wundef -Wuninitialized -g3 -DNDEBUG -o "C:\Users\ayush\OneDrive\Desktop\Cloud Computing\mini-project-5\week5_lambda\target\x86_64-unknown-linux-gnu\release\build\ring-987cc8abfac606f6\out\cfc10c6faf03daaf-x86_64-mont-elf.o" -c C:\Users\ayush\.cargo\registry\src\index.crates.io-6f17d22bba15001f\ring-0.17.8\pregenerated\x86_64-mont-elf.S 
+
+C:\Users\ayush\.cargo\registry\src\index.crates.io-6f17d22bba15001f\ring-0.17.8>C:/Users/ayush/scoop/apps/cargo-lambda/current/cargo-lambda.exe zig cc -- -target x86_64-linux-gnu  -g -O3 -ffunction-sections -fdata-sections -fPIC -m64 "--target=x86_64-unknown-linux-gnu" -I include -I "C:\Users\ayush\OneDrive\Desktop\Cloud Computing\mini-project-5\week5_lambda\target\x86_64-unknown-linux-gnu\release\build\ring-987cc8abfac606f6\out" -Wall -Wextra "-fvisibility=hidden" "-std=c1x" -Wall -Wbad-function-cast -Wcast-align -Wcast-qual -Wconversion -Wmissing-field-initializers -Wmissing-include-dirs -Wnested-externs -Wredundant-decls -Wshadow -Wsign-compare -Wsign-conversion -Wstrict-prototypes -Wundef -Wuninitialized -g3 -DNDEBUG -o "C:\Users\ayush\OneDrive\Desktop\Cloud Computing\mini-project-5\week5_lambda\target\x86_64-unknown-linux-gnu\release\build\ring-987cc8abfac606f6\out\cfc10c6faf03daaf-x86_64-mont5-elf.o" -c C:\Users\ayush\.cargo\registry\src\index.crates.io-6f17d22bba15001f\ring-0.17.8\pregenerated\x86_64-mont5-elf.S 
+
+C:\Users\ayush\.cargo\registry\src\index.crates.io-6f17d22bba15001f\ring-0.17.8>C:/Users/ayush/scoop/apps/cargo-lambda/current/cargo-lambda.exe zig cc -- -target x86_64-linux-gnu  -g -O3 -ffunction-sections -fdata-sections -fPIC -m64 "--target=x86_64-unknown-linux-gnu" -I include -I "C:\Users\ayush\OneDrive\Desktop\Cloud Computing\mini-project-5\week5_lambda\target\x86_64-unknown-linux-gnu\release\build\ring-987cc8abfac606f6\out" -Wall -Wextra "-fvisibility=hidden" "-std=c1x" -Wall -Wbad-function-cast -Wcast-align -Wcast-qual -Wconversion -Wmissing-field-initializers -Wmissing-include-dirs -Wnested-externs -Wredundant-decls -Wshadow -Wsign-compare -Wsign-conversion -Wstrict-prototypes -Wundef -Wuninitialized -g3 -DNDEBUG -o "C:\Users\ayush\OneDrive\Desktop\Cloud Computing\mini-project-5\week5_lambda\target\x86_64-unknown-linux-gnu\release\build\ring-987cc8abfac606f6\out\cfc10c6faf03daaf-p256-x86_64-asm-elf.o" -c C:\Users\ayush\.cargo\registry\src\index.crates.io-6f17d22bba15001f\ring-0.17.8\pregenerated\p256-x86_64-asm-elf.S 
+
+C:\Users\ayush\.cargo\registry\src\index.crates.io-6f17d22bba15001f\ring-0.17.8>C:/Users/ayush/scoop/apps/cargo-lambda/current/cargo-lambda.exe zig cc -- -target x86_64-linux-gnu  -g -O3 -ffunction-sections -fdata-sections -fPIC -m64 "--target=x86_64-unknown-linux-gnu" -I include -I "C:\Users\ayush\OneDrive\Desktop\Cloud Computing\mini-project-5\week5_lambda\target\x86_64-unknown-linux-gnu\release\build\ring-987cc8abfac606f6\out" -Wall -Wextra "-fvisibility=hidden" "-std=c1x" -Wall -Wbad-function-cast -Wcast-align -Wcast-qual -Wconversion -Wmissing-field-initializers -Wmissing-include-dirs -Wnested-externs -Wredundant-decls -Wshadow -Wsign-compare -Wsign-conversion -Wstrict-prototypes -Wundef -Wuninitialized -g3 -DNDEBUG -o "C:\Users\ayush\OneDrive\Desktop\Cloud Computing\mini-project-5\week5_lambda\target\x86_64-unknown-linux-gnu\release\build\ring-987cc8abfac606f6\out\cfc10c6faf03daaf-aesni-gcm-x86_64-elf.o" -c C:\Users\ayush\.cargo\registry\src\index.crates.io-6f17d22bba15001f\ring-0.17.8\pregenerated\aesni-gcm-x86_64-elf.S 
+
+C:\Users\ayush\.cargo\registry\src\index.crates.io-6f17d22bba15001f\ring-0.17.8>C:/Users/ayush/scoop/apps/cargo-lambda/current/cargo-lambda.exe zig cc -- -target x86_64-linux-gnu  -g -O3 -ffunction-sections -fdata-sections -fPIC -m64 "--target=x86_64-unknown-linux-gnu" -I include -I "C:\Users\ayush\OneDrive\Desktop\Cloud Computing\mini-project-5\week5_lambda\target\x86_64-unknown-linux-gnu\release\build\ring-987cc8abfac606f6\out" -Wall -Wextra "-fvisibility=hidden" "-std=c1x" -Wall -Wbad-function-cast -Wcast-align -Wcast-qual -Wconversion -Wmissing-field-initializers -Wmissing-include-dirs -Wnested-externs -Wredundant-decls -Wshadow -Wsign-compare -Wsign-conversion -Wstrict-prototypes -Wundef -Wuninitialized -g3 -DNDEBUG -o "C:\Users\ayush\OneDrive\Desktop\Cloud Computing\mini-project-5\week5_lambda\target\x86_64-unknown-linux-gnu\release\build\ring-987cc8abfac606f6\out\cfc10c6faf03daaf-ghash-x86_64-elf.o" -c C:\Users\ayush\.cargo\registry\src\index.crates.io-6f17d22bba15001f\ring-0.17.8\pregenerated\ghash-x86_64-elf.S 
+
+C:\Users\ayush\.cargo\registry\src\index.crates.io-6f17d22bba15001f\ring-0.17.8>C:/Users/ayush/scoop/apps/cargo-lambda/current/cargo-lambda.exe zig cc -- -target x86_64-linux-gnu  -g -O3 -ffunction-sections -fdata-sections -fPIC -m64 "--target=x86_64-unknown-linux-gnu" -I include -I "C:\Users\ayush\OneDrive\Desktop\Cloud Computing\mini-project-5\week5_lambda\target\x86_64-unknown-linux-gnu\release\build\ring-987cc8abfac606f6\out" -Wall -Wextra "-fvisibility=hidden" "-std=c1x" -Wall -Wbad-function-cast -Wcast-align -Wcast-qual -Wconversion -Wmissing-field-initializers -Wmissing-include-dirs -Wnested-externs -Wredundant-decls -Wshadow -Wsign-compare -Wsign-conversion -Wstrict-prototypes -Wundef -Wuninitialized -g3 -DNDEBUG -o "C:\Users\ayush\OneDrive\Desktop\Cloud Computing\mini-project-5\week5_lambda\target\x86_64-unknown-linux-gnu\release\build\ring-987cc8abfac606f6\out\cfc10c6faf03daaf-sha512-x86_64-elf.o" -c C:\Users\ayush\.cargo\registry\src\index.crates.io-6f17d22bba15001f\ring-0.17.8\pregenerated\sha512-x86_64-elf.S 
+
+C:\Users\ayush\.cargo\registry\src\index.crates.io-6f17d22bba15001f\ring-0.17.8>C:/Users/ayush/scoop/apps/cargo-lambda/current/cargo-lambda.exe zig cc -- -target x86_64-linux-gnu  -g -O3 -ffunction-sections -fdata-sections -fPIC -m64 "--target=x86_64-unknown-linux-gnu" -I include -I "C:\Users\ayush\OneDrive\Desktop\Cloud Computing\mini-project-5\week5_lambda\target\x86_64-unknown-linux-gnu\release\build\ring-987cc8abfac606f6\out" -Wall -Wextra "-fvisibility=hidden" "-std=c1x" -Wall -Wbad-function-cast -Wcast-align -Wcast-qual -Wconversion -Wmissing-field-initializers -Wmissing-include-dirs -Wnested-externs -Wredundant-decls -Wshadow -Wsign-compare -Wsign-conversion -Wstrict-prototypes -Wundef -Wuninitialized -g3 -DNDEBUG -o "C:\Users\ayush\OneDrive\Desktop\Cloud Computing\mini-project-5\week5_lambda\target\x86_64-unknown-linux-gnu\release\build\ring-987cc8abfac606f6\out\cfc10c6faf03daaf-chacha20_poly1305_x86_64-elf.o" -c C:\Users\ayush\.cargo\registry\src\index.crates.io-6f17d22bba15001f\ring-0.17.8\pregenerated\chacha20_poly1305_x86_64-elf.S 
+
+C:\Users\ayush\.cargo\registry\src\index.crates.io-6f17d22bba15001f\ring-0.17.8>C:/Users/ayush/scoop/apps/cargo-lambda/current/cargo-lambda.exe zig cc -- -target x86_64-linux-gnu  -g -O3 -ffunction-sections -fdata-sections -fPIC -m64 "--target=x86_64-unknown-linux-gnu" -I include -I "C:\Users\ayush\OneDrive\Desktop\Cloud Computing\mini-project-5\week5_lambda\target\x86_64-unknown-linux-gnu\release\build\ring-987cc8abfac606f6\out" -Wall -Wextra "-fvisibility=hidden" "-std=c1x" -Wall -Wbad-function-cast -Wcast-align -Wcast-qual -Wconversion -Wmissing-field-initializers -Wmissing-include-dirs -Wnested-externs -Wredundant-decls -Wshadow -Wsign-compare -Wsign-conversion -Wstrict-prototypes -Wundef -Wuninitialized -g3 -DNDEBUG -o "C:\Users\ayush\OneDrive\Desktop\Cloud Computing\mini-project-5\week5_lambda\target\x86_64-unknown-linux-gnu\release\build\ring-987cc8abfac606f6\out\cfc10c6faf03daaf-sha256-x86_64-elf.o" -c C:\Users\ayush\.cargo\registry\src\index.crates.io-6f17d22bba15001f\ring-0.17.8\pregenerated\sha256-x86_64-elf.S 
+cargo:rustc-link-lib=static=ring_core_0_17_8_
+OPT_LEVEL = Some("3")
+TARGET = Some("x86_64-unknown-linux-gnu")
+HOST = Some("x86_64-pc-windows-msvc")
+cargo:rerun-if-env-changed=CC_x86_64-unknown-linux-gnu
+CC_x86_64-unknown-linux-gnu = None
+cargo:rerun-if-env-changed=CC_x86_64_unknown_linux_gnu
+CC_x86_64_unknown_linux_gnu = Some("C:/Users/ayush/AppData/Local/cargo-zigbuild/0.17.5/zigcc-x86_64-unknown-linux-gnu.bat")
+cargo:rerun-if-env-changed=CC_ENABLE_DEBUG_OUTPUT
+cargo:rerun-if-env-changed=CRATE_CC_NO_DEFAULTS
+CRATE_CC_NO_DEFAULTS = None
+DEBUG = Some("false")
+cargo:rerun-if-env-changed=CFLAGS_x86_64-unknown-linux-gnu
+CFLAGS_x86_64-unknown-linux-gnu = None
+cargo:rerun-if-env-changed=CFLAGS_x86_64_unknown_linux_gnu
+CFLAGS_x86_64_unknown_linux_gnu = None
+cargo:rerun-if-env-changed=TARGET_CFLAGS
+TARGET_CFLAGS = None
+cargo:rerun-if-env-changed=CFLAGS
+CFLAGS = None
+
+C:\Users\ayush\.cargo\registry\src\index.crates.io-6f17d22bba15001f\ring-0.17.8>C:/Users/ayush/scoop/apps/cargo-lambda/current/cargo-lambda.exe zig cc -- -target x86_64-linux-gnu  -g -O3 -ffunction-sections -fdata-sections -fPIC -m64 "--target=x86_64-unknown-linux-gnu" -I include -I "C:\Users\ayush\OneDrive\Desktop\Cloud Computing\mini-project-5\week5_lambda\target\x86_64-unknown-linux-gnu\release\build\ring-987cc8abfac606f6\out" -Wall -Wextra "-fvisibility=hidden" "-std=c1x" -Wall -Wbad-function-cast -Wcast-align -Wcast-qual -Wconversion -Wmissing-field-initializers -Wmissing-include-dirs -Wnested-externs -Wredundant-decls -Wshadow -Wsign-compare -Wsign-conversion -Wstrict-prototypes -Wundef -Wuninitialized -g3 -DNDEBUG -o "C:\Users\ayush\OneDrive\Desktop\Cloud Computing\mini-project-5\week5_lambda\target\x86_64-unknown-linux-gnu\release\build\ring-987cc8abfac606f6\out\7effb53edfc7fa2d-constant_time_test.o" -c crypto/constant_time_test.c 
+cargo:rustc-link-lib=static=ring_core_0_17_8_test
+cargo:rustc-link-search=native=C:\Users\ayush\OneDrive\Desktop\Cloud Computing\mini-project-5\week5_lambda\target\x86_64-unknown-linux-gnu\release\build\ring-987cc8abfac606f6\out
+cargo:rerun-if-changed=crypto\chacha\asm\chacha-armv4.pl
+cargo:rerun-if-changed=crypto\chacha\asm\chacha-armv8.pl
+cargo:rerun-if-changed=crypto\chacha\asm\chacha-x86.pl
+cargo:rerun-if-changed=crypto\chacha\asm\chacha-x86_64.pl
+cargo:rerun-if-changed=crypto\cipher_extra\asm\chacha20_poly1305_armv8.pl
+cargo:rerun-if-changed=crypto\cipher_extra\asm\chacha20_poly1305_x86_64.pl
+cargo:rerun-if-changed=crypto\constant_time_test.c
+cargo:rerun-if-changed=crypto\cpu_intel.c
+cargo:rerun-if-changed=crypto\crypto.c
+cargo:rerun-if-changed=crypto\curve25519\asm\x25519-asm-arm.S
+cargo:rerun-if-changed=crypto\curve25519\curve25519.c
+cargo:rerun-if-changed=crypto\curve25519\curve25519_64_adx.c
+cargo:rerun-if-changed=crypto\curve25519\curve25519_tables.h
+cargo:rerun-if-changed=crypto\curve25519\internal.h
+cargo:rerun-if-changed=crypto\fipsmodule\aes\aes_nohw.c
+cargo:rerun-if-changed=crypto\fipsmodule\aes\asm\aesni-x86.pl
+cargo:rerun-if-changed=crypto\fipsmodule\aes\asm\aesni-x86_64.pl
+cargo:rerun-if-changed=crypto\fipsmodule\aes\asm\aesv8-armx.pl
+cargo:rerun-if-changed=crypto\fipsmodule\aes\asm\bsaes-armv7.pl
+cargo:rerun-if-changed=crypto\fipsmodule\aes\asm\vpaes-x86.pl
+cargo:rerun-if-changed=crypto\fipsmodule\aes\asm\vpaes-x86_64.pl
+cargo:rerun-if-changed=crypto\fipsmodule\bn\asm\armv4-mont.pl
+cargo:rerun-if-changed=crypto\fipsmodule\bn\asm\armv8-mont.pl
+cargo:rerun-if-changed=crypto\fipsmodule\bn\asm\x86-mont.pl
+cargo:rerun-if-changed=crypto\fipsmodule\bn\asm\x86_64-mont.pl
+cargo:rerun-if-changed=crypto\fipsmodule\bn\asm\x86_64-mont5.pl
+cargo:rerun-if-changed=crypto\fipsmodule\bn\internal.h
+cargo:rerun-if-changed=crypto\fipsmodule\bn\montgomery.c
+cargo:rerun-if-changed=crypto\fipsmodule\bn\montgomery_inv.c
+cargo:rerun-if-changed=crypto\fipsmodule\ec\asm\p256-armv8-asm.pl
+cargo:rerun-if-changed=crypto\fipsmodule\ec\asm\p256-x86_64-asm.pl
+cargo:rerun-if-changed=crypto\fipsmodule\ec\ecp_nistz.c
+cargo:rerun-if-changed=crypto\fipsmodule\ec\ecp_nistz.h
+cargo:rerun-if-changed=crypto\fipsmodule\ec\ecp_nistz384.h
+cargo:rerun-if-changed=crypto\fipsmodule\ec\ecp_nistz384.inl
+cargo:rerun-if-changed=crypto\fipsmodule\ec\gfp_p256.c
+cargo:rerun-if-changed=crypto\fipsmodule\ec\gfp_p384.c
+cargo:rerun-if-changed=crypto\fipsmodule\ec\p256-nistz-table.h
+cargo:rerun-if-changed=crypto\fipsmodule\ec\p256-nistz.c
+cargo:rerun-if-changed=crypto\fipsmodule\ec\p256-nistz.h
+cargo:rerun-if-changed=crypto\fipsmodule\ec\p256.c
+cargo:rerun-if-changed=crypto\fipsmodule\ec\p256_shared.h
+cargo:rerun-if-changed=crypto\fipsmodule\ec\p256_table.h
+cargo:rerun-if-changed=crypto\fipsmodule\ec\util.h
+cargo:rerun-if-changed=crypto\fipsmodule\modes\asm\aesni-gcm-x86_64.pl
+cargo:rerun-if-changed=crypto\fipsmodule\modes\asm\aesv8-gcm-armv8.pl
+cargo:rerun-if-changed=crypto\fipsmodule\modes\asm\ghash-armv4.pl
+cargo:rerun-if-changed=crypto\fipsmodule\modes\asm\ghash-x86.pl
+cargo:rerun-if-changed=crypto\fipsmodule\modes\asm\ghash-x86_64.pl
+cargo:rerun-if-changed=crypto\fipsmodule\modes\asm\ghashv8-armx.pl
+cargo:rerun-if-changed=crypto\fipsmodule\sha\asm\sha256-armv4.pl
+cargo:rerun-if-changed=crypto\fipsmodule\sha\asm\sha512-armv4.pl
+cargo:rerun-if-changed=crypto\fipsmodule\sha\asm\sha512-armv8.pl
+cargo:rerun-if-changed=crypto\fipsmodule\sha\asm\sha512-x86_64.pl
+cargo:rerun-if-changed=crypto\internal.h
+cargo:rerun-if-changed=crypto\limbs\limbs.c
+cargo:rerun-if-changed=crypto\limbs\limbs.h
+cargo:rerun-if-changed=crypto\limbs\limbs.inl
+cargo:rerun-if-changed=crypto\mem.c
+cargo:rerun-if-changed=crypto\perlasm\arm-xlate.pl
+cargo:rerun-if-changed=crypto\perlasm\x86asm.pl
+cargo:rerun-if-changed=crypto\perlasm\x86gas.pl
+cargo:rerun-if-changed=crypto\perlasm\x86nasm.pl
+cargo:rerun-if-changed=crypto\perlasm\x86_64-xlate.pl
+cargo:rerun-if-changed=crypto\poly1305\internal.h
+cargo:rerun-if-changed=crypto\poly1305\poly1305.c
+cargo:rerun-if-changed=crypto\poly1305\poly1305_arm.c
+cargo:rerun-if-changed=crypto\poly1305\poly1305_arm_asm.S
+cargo:rerun-if-changed=crypto\poly1305\poly1305_vec.c
+cargo:rerun-if-changed=include\ring-core\aes.h
+cargo:rerun-if-changed=include\ring-core\arm_arch.h
+cargo:rerun-if-changed=include\ring-core\asm_base.h
+cargo:rerun-if-changed=include\ring-core\base.h
+cargo:rerun-if-changed=include\ring-core\check.h
+cargo:rerun-if-changed=include\ring-core\mem.h
+cargo:rerun-if-changed=include\ring-core\poly1305.h
+cargo:rerun-if-changed=include\ring-core\target.h
+cargo:rerun-if-changed=include\ring-core\type_check.h
+cargo:rerun-if-changed=third_party/fiat\asm\fiat_curve25519_adx_mul.S
+cargo:rerun-if-changed=third_party/fiat\asm\fiat_curve25519_adx_square.S
+cargo:rerun-if-changed=third_party/fiat\curve25519_32.h
+cargo:rerun-if-changed=third_party/fiat\curve25519_64.h
+cargo:rerun-if-changed=third_party/fiat\curve25519_64_adx.h
+cargo:rerun-if-changed=third_party/fiat\curve25519_64_msvc.h
+cargo:rerun-if-changed=third_party/fiat\LICENSE
+cargo:rerun-if-changed=third_party/fiat\p256_32.h
+cargo:rerun-if-changed=third_party/fiat\p256_64.h
+cargo:rerun-if-changed=third_party/fiat\p256_64_msvc.h

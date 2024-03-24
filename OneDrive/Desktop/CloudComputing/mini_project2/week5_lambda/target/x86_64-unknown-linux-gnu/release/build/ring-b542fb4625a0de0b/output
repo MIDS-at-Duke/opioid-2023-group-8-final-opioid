@@ -1,0 +1,24 @@
+cargo:rustc-link-lib=static=ring-core
+OPT_LEVEL = Some("3")
+TARGET = Some("x86_64-unknown-linux-gnu")
+HOST = Some("x86_64-pc-windows-msvc")
+cargo:rerun-if-env-changed=CC_x86_64-unknown-linux-gnu
+CC_x86_64-unknown-linux-gnu = None
+cargo:rerun-if-env-changed=CC_x86_64_unknown_linux_gnu
+CC_x86_64_unknown_linux_gnu = Some("C:/Users/ayush/AppData/Local/cargo-zigbuild/0.17.5/zigcc-x86_64-unknown-linux-gnu.bat")
+cargo:rerun-if-env-changed=CC_ENABLE_DEBUG_OUTPUT
+cargo:rerun-if-env-changed=CRATE_CC_NO_DEFAULTS
+CRATE_CC_NO_DEFAULTS = None
+DEBUG = Some("false")
+cargo:rerun-if-env-changed=CFLAGS_x86_64-unknown-linux-gnu
+CFLAGS_x86_64-unknown-linux-gnu = None
+cargo:rerun-if-env-changed=CFLAGS_x86_64_unknown_linux_gnu
+CFLAGS_x86_64_unknown_linux_gnu = None
+cargo:rerun-if-env-changed=TARGET_CFLAGS
+TARGET_CFLAGS = None
+cargo:rerun-if-env-changed=CFLAGS
+CFLAGS = None
+
+C:\Users\ayush\.cargo\registry\src\index.crates.io-6f17d22bba15001f\ring-0.16.20>C:/Users/ayush/scoop/apps/cargo-lambda/current/cargo-lambda.exe zig cc -- -target x86_64-linux-gnu  -g -O3 -ffunction-sections -fdata-sections -fPIC -m64 "--target=x86_64-unknown-linux-gnu" -I include -Wall -Wextra "-std=c1x" -Wbad-function-cast -Wnested-externs -Wstrict-prototypes -pedantic -pedantic-errors -Wall -Wextra -Wcast-align -Wcast-qual -Wconversion -Wenum-compare -Wfloat-equal "-Wformat=2" -Winline -Winvalid-pch -Wmissing-field-initializers -Wmissing-include-dirs -Wredundant-decls -Wshadow -Wsign-compare -Wsign-conversion -Wundef -Wuninitialized -Wwrite-strings -fno-strict-aliasing "-fvisibility=hidden" -fstack-protector -g3 -DNDEBUG -c "-oC:\Users\ayush\OneDrive\Desktop\Cloud Computing\mini-project-5\week5_lambda\target\x86_64-unknown-linux-gnu\release\build\ring-b542fb4625a0de0b\out\constant_time_test.o" crypto/constant_time_test.c 
+cargo:rustc-link-lib=static=ring-test
+cargo:rustc-link-search=native=C:\Users\ayush\OneDrive\Desktop\Cloud Computing\mini-project-5\week5_lambda\target\x86_64-unknown-linux-gnu\release\build\ring-b542fb4625a0de0b\out

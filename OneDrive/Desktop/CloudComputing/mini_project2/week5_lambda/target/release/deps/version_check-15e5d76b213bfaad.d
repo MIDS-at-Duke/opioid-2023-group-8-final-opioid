@@ -1,0 +1,10 @@
+C:\Users\ayush\OneDrive\Desktop\CloudComputing\mini-project-6\week5_lambda\target\release\deps\version_check-15e5d76b213bfaad.rmeta: C:\Users\ayush\.cargo\registry\src\index.crates.io-6f17d22bba15001f\version_check-0.9.4\src\lib.rs C:\Users\ayush\.cargo\registry\src\index.crates.io-6f17d22bba15001f\version_check-0.9.4\src\version.rs C:\Users\ayush\.cargo\registry\src\index.crates.io-6f17d22bba15001f\version_check-0.9.4\src\channel.rs C:\Users\ayush\.cargo\registry\src\index.crates.io-6f17d22bba15001f\version_check-0.9.4\src\date.rs
+
+C:\Users\ayush\OneDrive\Desktop\CloudComputing\mini-project-6\week5_lambda\target\release\deps\libversion_check-15e5d76b213bfaad.rlib: C:\Users\ayush\.cargo\registry\src\index.crates.io-6f17d22bba15001f\version_check-0.9.4\src\lib.rs C:\Users\ayush\.cargo\registry\src\index.crates.io-6f17d22bba15001f\version_check-0.9.4\src\version.rs C:\Users\ayush\.cargo\registry\src\index.crates.io-6f17d22bba15001f\version_check-0.9.4\src\channel.rs C:\Users\ayush\.cargo\registry\src\index.crates.io-6f17d22bba15001f\version_check-0.9.4\src\date.rs
+
+C:\Users\ayush\OneDrive\Desktop\CloudComputing\mini-project-6\week5_lambda\target\release\deps\version_check-15e5d76b213bfaad.d: C:\Users\ayush\.cargo\registry\src\index.crates.io-6f17d22bba15001f\version_check-0.9.4\src\lib.rs C:\Users\ayush\.cargo\registry\src\index.crates.io-6f17d22bba15001f\version_check-0.9.4\src\version.rs C:\Users\ayush\.cargo\registry\src\index.crates.io-6f17d22bba15001f\version_check-0.9.4\src\channel.rs C:\Users\ayush\.cargo\registry\src\index.crates.io-6f17d22bba15001f\version_check-0.9.4\src\date.rs
+
+C:\Users\ayush\.cargo\registry\src\index.crates.io-6f17d22bba15001f\version_check-0.9.4\src\lib.rs:
+C:\Users\ayush\.cargo\registry\src\index.crates.io-6f17d22bba15001f\version_check-0.9.4\src\version.rs:
+C:\Users\ayush\.cargo\registry\src\index.crates.io-6f17d22bba15001f\version_check-0.9.4\src\channel.rs:
+C:\Users\ayush\.cargo\registry\src\index.crates.io-6f17d22bba15001f\version_check-0.9.4\src\date.rs:
